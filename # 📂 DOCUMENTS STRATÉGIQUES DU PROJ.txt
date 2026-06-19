@@ -1,0 +1,581 @@
+# 📂 DOCUMENTS STRATÉGIQUES DU PROJET « TONTINE ZEN LIGHT »
+
+---
+
+# 📄 DOCUMENT 1 : PROJET_DAPPLICATION_TONTINE_ZEN_LIGHT.md
+
+```markdown
+# Projet d'Application – TONTINE ZEN LIGHT
+
+**Version :** 1.0  
+**Date :** 19 Juin 2026  
+**Auteur :** [Votre Nom]  
+**Statut :** Document de référence pour le projet
+
+---
+
+## 1. IDENTITÉ DU PROJET
+
+| Champ | Information |
+| :--- | :--- |
+| **Nom du projet** | TONTINE ZEN LIGHT |
+| **Slogan** | *"La tontine transparente qui protège votre réputation."* |
+| **Type de projet** | Application mobile de gestion de tontine (Fintech Sociale) |
+| **Phase actuelle** | Conception / Pré-lancement |
+| **Durée estimée** | 6 mois (MVP) → 12 mois (V1) → 24 mois (V2) |
+
+---
+
+## 2. PROBLÉMATIQUE
+
+### 2.1. Contexte
+Au Cameroun, la tontine est un pilier de l'économie informelle. **50% de la population** (≈ 14 millions de personnes) y participe. Elle finance l'éducation, la santé, le commerce, et renforce les liens sociaux.
+
+### 2.2. Problèmes identifiés
+| Problème | Description | Impact |
+| :--- | :--- | :--- |
+| **Manque de transparence** | Les comptes sont tenus manuellement, sans visibilité pour tous | Conflits, méfiance |
+| **Risque d'impayés** | Un membre peut cesser de payer sans conséquence grave | Blocage de la tontine |
+| **Absence de cadre juridique** | En cas de litige, les recours sont quasi inexistants | Injustice, violences |
+| **Méfiance numérique** | Les solutions existantes n'apportent pas de garantie suffisante | Adoption faible |
+
+---
+
+## 3. SOLUTION PROPOSÉE
+
+### 3.1. Description
+« TONTINE ZEN LIGHT » est une **application mobile** qui transforme la tontine traditionnelle en un espace de **transparence et de confiance**, sans manipuler les fonds des utilisateurs.
+
+### 3.2. Les 4 Piliers
+
+| Pilier | Fonctionnalité | Bénéfice |
+| :--- | :--- | :--- |
+| **1. Transparence** | Historique des paiements consultable par tous | Visibilité totale, fin des suspicions |
+| **2. Réputation** | Score de confiance (0-100) calculé automatiquement | Pression sociale positive, incitation à payer |
+| **3. Cadre juridique** | Contrat OHADA signé électroniquement | Preuve en cas de litige, dissuasion |
+| **4. Médiation** | Médiateurs agréés, espace de discussion sécurisé | Résolution à l'amiable, réduction des conflits |
+
+### 3.3. Modèle Économique
+- **Gratuit** : Fonctionnalités de base (gestion, score, historique 3 mois).
+- **Premium (2 000 FCFA/mois)** : Gestion illimitée, contrat juridique, médiation, export PDF.
+- **Frais de médiation (5 000 FCFA/litige)** : Frais de mise en relation avec un médiateur.
+
+### 3.4. Positionnement
+| Concurrent | Notre Différenciation |
+| :--- | :--- |
+| **Djangui** (gestionnaire) | Score de réputation public + contrat OHADA |
+| **yaNkap** (super-app) | Absence de frais de transaction (freemium) |
+| **Orange Max it** | Médiation intégrée + cadre juridique |
+| **Tontine physique** | Transparence digitale + sécurité juridique |
+
+---
+
+## 4. MARCHÉ CIBLE
+
+### 4.1. Zone Géographique (V1)
+- **Douala, Yaoundé, Bafoussam** (urbains connectés).
+
+### 4.2. Segments Cibles
+
+| Segment | Description | Taille estimée |
+| :--- | :--- | :--- |
+| Femmes commerçantes (35-55 ans) | Gestionnaires de tontines de quartier | 2 millions |
+| Jeunes cadres (25-40 ans) | Technophiles, recherchent transparence | 1 million |
+| Diaspora | Camerounais à l'étranger | 500 000 |
+
+### 4.3. Personas
+
+| Persona | Description | Besoin spécifique |
+| :--- | :--- | :--- |
+| **Ngo, 42 ans** | Commerçante à Douala, gère 1 tontine de 15 femmes | Gagner du temps, éviter les conflits |
+| **Jean, 29 ans** | Cadre à Yaoundé, fait partie d'une tontine d'anciens camarades | Transparence, preuve en cas de litige |
+| **Marie, 50 ans** | Diaspora en France, veut participer à la tontine familiale | Suivre ses paiements à distance |
+
+---
+
+## 5. FEUILLE DE ROUTE (ROADMAP)
+
+### Phase 1 : MVP (4 mois)
+| Mois | Actions |
+| :--- | :--- |
+| M1 | Conception UI/UX, maquettes, validation juridique |
+| M2 | Développement backend (API, base de données) |
+| M3 | Développement frontend (Flutter) |
+| M4 | Tests, corrections, bêta-test (50 utilisateurs) |
+
+### Phase 2 : Lancement (2 mois)
+| Mois | Actions |
+| :--- | :--- |
+| M5 | Lancement sur Play Store/App Store (Douala, Yaoundé, Bafoussam) |
+| M6 | Campagne marketing : ambassadeurs, influenceurs, radio |
+
+### Phase 3 : V1.5 (6 mois après lancement)
+| Mois | Actions |
+| :--- | :--- |
+| M7-8 | Recueil des feedbacks, corrections |
+| M9 | Ajout de la micro-assurance (optionnelle) |
+| M10-12 | Extension à d'autres villes |
+
+### Phase 4 : V2 (24 mois)
+| Mois | Actions |
+| :--- | :--- |
+| M13-18 | Agents de proximité (zones rurales) |
+| M19-24 | Partenariat bancaire, séquestre (option payante) |
+
+---
+
+## 6. ÉQUIPE ET COMPÉTENCES
+
+| Rôle | Compétences | Statut |
+| :--- | :--- | :--- |
+| **Directeur Général** | Vision stratégique, business | [Vous] |
+| **Lead Développeur** | Flutter, Node.js, PostgreSQL | À recruter |
+| **Designer UI/UX** | Figma, expérience utilisateur | À recruter |
+| **Juriste** | OHADA, COBAC, conformité | Partenaire externe |
+| **Community Manager** | Marketing digital, réseaux sociaux | À recruter |
+
+---
+
+## 7. BUDGET ESTIMATIF (V1 + Lancement)
+
+| Poste | Coût (FCFA) |
+| :--- | :--- |
+| Développement (MVP) | 15 000 000 |
+| Hébergement (Cloud) | 2 000 000 |
+| Marketing & Acquisition | 7 000 000 |
+| Équipe (2 devs + 1 CM) | 10 000 000 |
+| Juriste (consultant) | 3 000 000 |
+| Maintenance & support | 3 000 000 |
+| **Total** | **40 000 000 FCFA** |
+
+---
+
+## 8. INDICATEURS DE SUCCÈS (KPI)
+
+| KPI | Cible (12 mois) |
+| :--- | :--- |
+| Téléchargements | 50 000 |
+| Utilisateurs actifs mensuels | 20 000 |
+| Tontines créées | 5 000 |
+| Taux de conversion Premium | 10% (2 000 abonnés) |
+| Taux de rétention (3 mois) | > 40% |
+| Taux de litige | < 2% |
+| Score de satisfaction (in-app) | > 4,5/5 |
+
+---
+
+## 9. RISQUES ET MITIGATION
+
+| Risque | Impact | Mitigation |
+| :--- | :--- | :--- |
+| Adoption lente | Élevé | Campagne en langues locales, ambassadeurs |
+| Concurrence | Moyen | Se différencier par la réputation et le contrat |
+| Défauts techniques | Élevé | Plan de test rigoureux, bêta-test |
+| Manque de financement | Élevé | Levée de fonds, modèle freemium |
+
+---
+
+## 10. CONCLUSION
+
+**« TONTINE ZEN LIGHT » est un projet viable, réalisable et porteur de sens.**
+
+Il apporte une réponse concrète aux fragilités de la tontine traditionnelle (transparence, confiance, cadre juridique) sans les complexités du séquestre bancaire. Son modèle freemium le rend accessible à tous et durable économiquement.
+
+**Prochaine étape** : Validation du projet par les parties prenantes, puis lancement de l'appel d'offres pour le développement.
+```
+
+---
+
+# 📄 DOCUMENT 2 : RESUME_EXECUTIF_TONTINE_ZEN_LIGHT.md
+
+```markdown
+# Résumé Exécutif – TONTINE ZEN LIGHT
+
+**Version :** 1.0  
+**Date :** 19 Juin 2026  
+**Auteur :** [Votre Nom]  
+**Destinataire :** Investisseurs, Partenaires, Comité de Pilotage
+
+---
+
+## 1. LE PROJET EN UNE PHRASE
+
+« TONTINE ZEN LIGHT » est une application mobile qui **transforme la tontine traditionnelle en un espace de transparence et de confiance**, grâce à un score de réputation public, un contrat juridique OHADA, et une médiation intégrée, **sans toucher à l'argent des utilisateurs**.
+
+---
+
+## 2. LA PROBLÉMATIQUE
+
+Au Cameroun, 50% de la population (≈ 14 millions de personnes) pratique la tontine. Mais ce système d'entraide est fragile :
+
+- **Manque de transparence** : Les comptes sont tenus manuellement.
+- **Risque d'impayés** : Un membre peut cesser de payer sans conséquence.
+- **Absence de cadre juridique** : En cas de litige, les recours sont quasi inexistants.
+- **Méfiance numérique** : Les solutions existantes (Djangui, yaNkap) n'apportent pas de garantie suffisante.
+
+---
+
+## 3. NOTRE SOLUTION
+
+| Pilier | Description | Bénéfice |
+| :--- | :--- | :--- |
+| **Transparence** | Historique des paiements consultable par tous | Visibilité totale |
+| **Réputation** | Score de confiance (0-100) public | Pression sociale positive |
+| **Cadre juridique** | Contrat OHADA signé électroniquement | Preuve en cas de litige |
+| **Médiation** | Médiateurs agréés, espace sécurisé | Résolution à l'amiable |
+
+---
+
+## 4. MARCHÉ CIBLE
+
+- **Zone** : Douala, Yaoundé, Bafoussam (V1) – urbains connectés.
+- **Segments** : Femmes commerçantes (35-55 ans) , jeunes cadres (25-40 ans), diaspora.
+- **Taille** : Marché total adressable = 14 millions de personnes.
+
+---
+
+## 5. MODÈLE ÉCONOMIQUE
+
+| Source de revenus | Tarif | Volume estimé (12 mois) | Revenu annuel |
+| :--- | :--- | :--- | :--- |
+| Abonnement Premium | 2 000 FCFA/mois | 2 000 utilisateurs | 48 000 000 FCFA |
+| Médiation | 5 000 FCFA/litige | 100 litiges | 500 000 FCFA |
+| **Total** | | | **48 500 000 FCFA** |
+
+**Objectif** : Atteindre le seuil de rentabilité en année 2.
+
+---
+
+## 6. INDICATEURS DE SUCCÈS (KPI)
+
+| KPI | Cible (12 mois) |
+| :--- | :--- |
+| Téléchargements | 50 000 |
+| Utilisateurs actifs mensuels | 20 000 |
+| Taux de conversion Premium | 10% |
+| Taux de rétention (3 mois) | > 40% |
+| Taux de litige | < 2% |
+
+---
+
+## 7. BESOIN DE FINANCEMENT
+
+- **Montant recherché** : 20 000 000 FCFA (≈ 30 000 €).
+- **Utilisation** :
+    - Développement MVP : 15 000 000 FCFA.
+    - Marketing initial : 5 000 000 FCFA.
+- **Contrepartie** : 15% du capital social de la société.
+
+---
+
+## 8. CE QUI FAIT NOTRE FORCE (AVANTAGE COMPÉTITIF)
+
+| Concurrent | Notre différenciation |
+| :--- | :--- |
+| **Djangui** | Score de réputation public + contrat OHADA |
+| **yaNkap** | Absence de frais de transaction (freemium) |
+| **Orange Max it** | Médiation intégrée + cadre juridique |
+
+---
+
+## 9. ÉQUIPE
+
+- **Directeur Général** : [Votre nom], vision stratégique.
+- **CTO** : À recruter, expertise technique.
+- **Juriste** : Cabinet partenaire spécialisé OHADA.
+- **Community Manager** : À recruter, marketing digital.
+
+---
+
+## 10. PROCHAINES ÉTAPES
+
+1. **Valider la faisabilité juridique** (consultation avocat).
+2. **Lancer un appel d'offres** auprès de 3-4 agences de développement.
+3. **Mobiliser les financements** (business plan, pitch deck).
+4. **Démarrer le développement** (MVP en 4 mois).
+5. **Lancer la campagne marketing** (ambassadeurs, influenceurs, radio).
+
+---
+
+## 11. POURQUOI INVESTIR ?
+
+- **Problème réel** : La tontine est un besoin fondamental pour 14 millions de Camerounais.
+- **Solution unique** : Aucune application existante ne propose de score de réputation public + contrat OHADA.
+- **Modèle économique solide** : Freemium + services payants, seuil de rentabilité atteignable en année 2.
+- **Impact social** : Réduction des conflits, protection des plus vulnérables, inclusion financière.
+- **Marché en croissance** : Digitalisation croissante des services financiers en Afrique.
+
+---
+
+> **« TONTINE ZEN LIGHT » : La tontine transparente qui protège votre réputation.**
+```
+
+---
+
+# 📄 DOCUMENT 3 : NOTE_CONCEPTUELLE_TONTINE_ZEN_LIGHT.md
+
+```markdown
+# Note Conceptuelle – TONTINE ZEN LIGHT
+
+**Version :** 1.0  
+**Date :** 19 Juin 2026  
+**Auteur :** [Votre Nom]  
+**Destinataire :** Partenaires, Bailleurs, Comité de Pilotage
+
+---
+
+## 1. INTRODUCTION
+
+### 1.1. Contexte et Justification
+
+Au Cameroun, la tontine est une institution sociale et économique majeure. Elle concerne environ **50% de la population** et permet de financer des projets essentiels (éducation, santé, commerce, cérémonies) pour des personnes qui n'ont pas accès au système bancaire traditionnel.
+
+Cependant, ce système d'entraide est confronté à des fragilités structurelles :
+
+- **Manque de transparence** : Les comptes sont tenus manuellement, sans visibilité pour tous.
+- **Risque d'impayés** : Un membre peut cesser de payer sans conséquence grave.
+- **Absence de cadre juridique** : En cas de litige, les recours sont quasi inexistants.
+- **Méfiance numérique** : Les solutions existantes (Djangui, yaNkap) n'apportent pas de garantie suffisante contre les défauts de paiement.
+
+### 1.2. Objectif de la Note
+
+Cette note conceptuelle présente la vision, la stratégie et les principes directeurs du projet **« TONTINE ZEN LIGHT »**. Elle vise à :
+
+1.  Présenter la problématique et la solution proposée.
+2.  Décrire le modèle économique et les bénéfices attendus.
+3.  Expliquer la stratégie de déploiement et de mise en œuvre.
+4.  Servir de base pour les partenariats et la mobilisation des financements.
+
+---
+
+## 2. VISION ET MISSION
+
+### 2.1. Vision
+
+> **Faire de la tontine un outil de confiance, de transparence et d'inclusion financière pour chaque Camerounais.**
+
+### 2.2. Mission
+
+> **Fournir une plateforme digitale simple, accessible et sécurisée qui renforce la confiance entre les membres d'une tontine, en rendant les paiements transparents, la réputation publique et le cadre juridique solide.**
+
+### 2.3. Valeurs
+
+| Valeur | Définition |
+| :--- | :--- |
+| **Transparence** | Toutes les informations sont accessibles à tous. |
+| **Confiance** | La réputation devient un actif social. |
+| **Solidarité** | L'entraide est préservée et renforcée. |
+| **Inclusion** | L'application est accessible à tous, y compris les non-initiés au numérique. |
+
+---
+
+## 3. PROBLÉMATIQUE ET SOLUTION
+
+### 3.1. Problématique Détailée
+
+| Problème | Causes | Conséquences |
+| :--- | :--- | :--- |
+| **Manque de transparence** | Comptes manuels, absence de visibilité | Conflits, méfiance, exclusion |
+| **Risque d'impayés** | Aucune sanction, absence de suivi | Blocage de la tontine, pertes financières |
+| **Absence de cadre juridique** | Loi non adaptée, méconnaissance | Litiges non résolus, violences |
+| **Méfiance numérique** | Arnaques, absence de garantie | Adoption faible des solutions digitales |
+
+### 3.2. Solution : Les 4 Piliers
+
+| Pilier | Fonctionnalité | Bénéfice |
+| :--- | :--- | :--- |
+| **1. Transparence** | Historique des paiements consultable par tous | Visibilité totale, fin des suspicions |
+| **2. Réputation** | Score de confiance (0-100) calculé automatiquement | Pression sociale positive, incitation à payer |
+| **3. Cadre juridique** | Contrat OHADA signé électroniquement | Preuve en cas de litige, dissuasion |
+| **4. Médiation** | Médiateurs agréés, espace de discussion sécurisé | Résolution à l'amiable, réduction des conflits |
+
+---
+
+## 4. STRATÉGIE DE MISE EN ŒUVRE
+
+### 4.1. Approche Pivot Minimaliste (Logique)
+
+| Phase | Contenu | Durée |
+| :--- | :--- | :--- |
+| **V1 (MVP)** | Gestion de tontine + Score de réputation + Contrat OHADA + Médiation | 4 mois |
+| **V1.5** | Ajout de la micro-assurance (optionnelle) | 6 mois après V1 |
+| **V2** | Agents de proximité (zones rurales) | 12 mois après V1 |
+| **V3** | Séquestre bancaire (option payante) | 24 mois après V1 |
+
+### 4.2. Ciblage Progressif
+
+| Phase | Zones géographiques | Segments prioritaires |
+| :--- | :--- | :--- |
+| **V1** | Douala, Yaoundé, Bafoussam | Femmes commerçantes, jeunes cadres |
+| **V2** | Extension à Garoua, Maroua | Agents de proximité, zones rurales |
+| **V3** | National | Tous les segments |
+
+### 4.3. Modèle Économique
+
+| Source de revenus | Tarif | Bénéficiaire |
+| :--- | :--- | :--- |
+| Abonnement Premium | 2 000 FCFA/mois | Utilisateurs Premium |
+| Frais de médiation | 5 000 FCFA/litige | Utilisateurs en litige |
+| Commission micro-assurance | 1,5% du montant cotisé | Utilisateurs assurés (V1.5) |
+| Frais de séquestre | 1% du montant géré | Utilisateurs de séquestre (V3) |
+
+---
+
+## 5. BÉNÉFICES ATTENDUS
+
+### 5.1. Bénéfices pour les Utilisateurs
+
+| Bénéfice | Description |
+| :--- | :--- |
+| **Transparence** | Suivi en temps réel des cotisations et des tirages |
+| **Confiance** | Score de réputation visible et vérifiable |
+| **Sécurité juridique** | Contrat signé électroniquement, preuve en cas de litige |
+| **Résolution pacifique** | Médiation intégrée, évite les violences |
+| **Accessibilité** | Interface multilingue (français, langues locales) |
+
+### 5.2. Bénéfices pour la Société
+
+| Bénéfice | Description |
+| :--- | :--- |
+| **Inclusion financière** | Accès à des services financiers pour les exclus du système bancaire |
+| **Réduction des conflits** | Moins de litiges, moins de violences liées à l'argent |
+| **Renforcement du lien social** | La tontine reste un espace d'entraide et de solidarité |
+| **Digitalisation** | Accélération de la transition numérique au Cameroun |
+
+### 5.3. Bénéfices pour les Investisseurs
+
+| Bénéfice | Description |
+| :--- | :--- |
+| **Marché important** | 14 millions de potentiels utilisateurs |
+| **Croissance rapide** | Forte demande pour des solutions de confiance |
+| **Modèle économique solide** | Freemium + services payants, seuil de rentabilité atteignable en année 2 |
+| **Impact social** | Projet à fort impact, attractif pour les investisseurs à impact |
+
+---
+
+## 6. INDICATEURS DE SUCCÈS (KPI)
+
+| KPI | Cible (12 mois) | Cible (3 ans) |
+| :--- | :--- | :--- |
+| Téléchargements | 50 000 | 500 000 |
+| Utilisateurs actifs mensuels | 20 000 | 150 000 |
+| Taux de conversion Premium | 10% | 15% |
+| Taux de rétention (3 mois) | > 40% | > 50% |
+| Taux de litige | < 2% | < 1% |
+
+---
+
+## 7. STRATÉGIE DE COMMUNICATION ET D'ACQUISITION
+
+### 7.1. Principes Directeurs
+
+| Principe | Description |
+| :--- | :--- |
+| **Bouche-à-oreille** | Le principal canal d'acquisition (parrainage récompensé) |
+| **Ambassadeurs** | Femmes commerçantes formées et rémunérées |
+| **Langues locales** | Communication en bamiléké, douala, fulfulde |
+| **Inclusion** | Agents de proximité pour les non-connectés |
+
+### 7.2. Canaux d'Acquisition
+
+| Canal | Description | Budget (V1) |
+| :--- | :--- | :--- |
+| Ambassadeurs | 50 femmes commerçantes (10 par ville) | 2 000 000 FCFA |
+| Influenceurs locaux | 5 influenceurs (100k+ followers) | 2 000 000 FCFA |
+| Radio locale | Campagne en langues locales | 2 000 000 FCFA |
+| Parrainage | "Parraine 3 amis, 1 mois Premium offert" | 1 000 000 FCFA |
+
+---
+
+## 8. ÉQUIPE ET GOUVERNANCE
+
+### 8.1. Équipe Projet
+
+| Rôle | Compétences | Statut |
+| :--- | :--- | :--- |
+| **Directeur Général** | Vision stratégique, business | [Vous] |
+| **Lead Développeur** | Flutter, Node.js, PostgreSQL | À recruter |
+| **Designer UI/UX** | Figma, expérience utilisateur | À recruter |
+| **Juriste** | OHADA, COBAC, conformité | Partenaire externe |
+| **Community Manager** | Marketing digital, réseaux sociaux | À recruter |
+
+### 8.2. Gouvernance
+
+| Instance | Composition | Rôle |
+| :--- | :--- | :--- |
+| **Comité de Pilotage** | DG, Investisseurs | Décisions stratégiques |
+| **Équipe Projet** | DG, Lead Dev, CM | Mise en œuvre opérationnelle |
+| **Conseil Juridique** | Cabinet d'avocats | Conformité, contrats |
+
+---
+
+## 9. BUDGET ET FINANCEMENT
+
+### 9.1. Budget V1 (MVP + Lancement)
+
+| Poste | Coût (FCFA) |
+| :--- | :--- |
+| Développement (MVP) | 15 000 000 |
+| Hébergement (Cloud) | 2 000 000 |
+| Marketing & Acquisition | 7 000 000 |
+| Équipe (2 devs + 1 CM) | 10 000 000 |
+| Juriste (consultant) | 3 000 000 |
+| Maintenance & support | 3 000 000 |
+| **Total** | **40 000 000 FCFA** |
+
+### 9.2. Besoin de Financement
+
+- **Montant recherché** : 20 000 000 FCFA (≈ 30 000 €).
+- **Utilisation** :
+    - Développement MVP : 15 000 000 FCFA.
+    - Marketing initial : 5 000 000 FCFA.
+- **Contrepartie** : 15% du capital social de la société.
+
+---
+
+## 10. CONCLUSION
+
+**« TONTINE ZEN LIGHT » est un projet viable, réalisable et porteur de sens.**
+
+Il apporte une réponse concrète aux fragilités de la tontine traditionnelle (transparence, confiance, cadre juridique) sans les complexités du séquestre bancaire. Son modèle freemium le rend accessible à tous et durable économiquement.
+
+**Prochaines étapes** :
+
+1.  Validation du concept par les parties prenantes.
+2.  Consultation juridique (OHADA, conformité).
+3.  Appel d'offres pour le développement.
+4.  Mobilisation des financements.
+5.  Lancement du développement (MVP en 4 mois).
+
+---
+
+## 11. CONTACT
+
+**Nom** : [Votre Nom]  
+**Fonction** : Directeur Général  
+**Téléphone** : [Votre numéro]  
+**Email** : [Votre email]  
+**Site web** : [Votre site]
+
+---
+
+> **« TONTINE ZEN LIGHT » : La tontine transparente qui protège votre réputation.**
+```
+
+---
+
+## 💎 RÉCAPITULATIF
+
+| Document | Objectif | Destinataire |
+| :--- | :--- | :--- |
+| **Projet d'Application** | Décrire le projet dans son ensemble (problématique, solution, roadmap, budget) | Équipe projet, partenaires |
+| **Résumé Exécutif** | Synthèse concise pour convaincre en quelques minutes | Investisseurs, banques, comité de pilotage |
+| **Note Conceptuelle** | Vision stratégique et justification du projet | Bailleurs, partenaires institutionnels |
+
+---
+
+Ces trois documents constituent la **base stratégique** de votre projet. Ils peuvent être utilisés :
+
+- Pour **convaincre des investisseurs** (résumé exécutif).
+- Pour **présenter le projet à des partenaires** (note conceptuelle).
+- Pour **structurer l'équipe et le développement** (projet d'application).

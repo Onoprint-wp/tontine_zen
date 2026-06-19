@@ -1,0 +1,2430 @@
+# 📋 CAHIER DES CHARGES – V1 « TONTINE ZEN LIGHT »
+
+**Version :** 1.0 – Pivot Minimaliste  
+**Date :** 19 Juin 2026  
+**Auteur :** [Votre Nom]  
+**Statut :** Document de référence pour le développement du MVP
+
+---
+
+## 1. PRÉSENTATION DU PROJET ET CONTEXTE
+
+### 1.1. Contexte et Problématique
+
+Au Cameroun, la tontine est une pratique sociale et économique majeure. Pourtant, elle souffre de fragilités structurelles :
+
+- **Manque de transparence** : Les comptes sont souvent tenus manuellement, sans visibilité pour tous.
+- **Risque d'impayés** : Un membre peut cesser de payer sans conséquence grave.
+- **Absence de cadre juridique** : En cas de litige, les recours sont quasi inexistants.
+- **Méfiance numérique** : Les solutions existantes (Djangui, yaNkap) n'apportent pas de garantie suffisante contre les défauts de paiement.
+
+### 1.2. Notre Réponse : « TONTINE ZEN LIGHT »
+
+Nous développons une **application mobile de gestion de tontine** qui repose sur **trois piliers** :
+
+| Pilier | Bénéfice |
+| :--- | :--- |
+| **Transparence totale** | Historique des paiements consultable par tous |
+| **Réputation publique** | Un score de confiance (0-100) visible pour chaque membre |
+| **Cadre juridique simple** | Un contrat OHADA signé électroniquement |
+
+> **Nous ne touchons pas à l'argent.** Les paiements se font hors application (Mobile Money, espèces). Notre valeur ajoutée est la **confiance** et la **transparence**.
+
+### 1.3. Positionnement
+
+« TONTINE ZEN LIGHT » est une **application communautaire** qui transforme la tontine informelle en un espace de confiance numérique. Elle se différencie de Djangui par :
+
+- L'absence de frais de transaction (modèle freemium).
+- Un **score de réputation** public, qui est un puissant mécanisme de pression sociale.
+- Un **contrat juridique** exécutoire.
+
+---
+
+## 2. OBJECTIFS BUSINESS ET KPI
+
+### 2.1. Objectifs à 12 mois
+
+| Indicateur | Cible |
+| :--- | :--- |
+| Téléchargements | 50 000 |
+| Utilisateurs actifs mensuels | 20 000 |
+| Tontines créées | 5 000 |
+| Taux de conversion Premium | 10% (2 000 utilisateurs payants) |
+| Chiffre d'affaires | 48 000 000 FCFA/an (2 000 × 2 000 FCFA × 12 mois) |
+
+### 2.2. KPI de Succès
+
+| Indicateur | Cible |
+| :--- | :--- |
+| Taux de rétention à 3 mois | > 40% |
+| Taux de litige | < 2% |
+| Taux de paiement régulier | > 90% |
+| Score de satisfaction (in-app) | > 4,5/5 |
+
+---
+
+## 3. PUBLIC CIBLE ET PERSONAS (V1)
+
+### 3.1. Marché Prioritaire
+
+**Zone géographique** : Douala, Yaoundé, Bafoussam (urbains connectés).
+
+**Segments cibles** :
+
+| Segment | Description |
+| :--- | :--- |
+| **Femmes commerçantes** (35-55 ans) | Gèrent des tontines de quartier. Veulent simplifier le suivi et éviter les conflits. |
+| **Jeunes cadres** (25-40 ans) | Technophiles, veulent épargner sans risque et avec transparence. |
+| **Membres de la diaspora** | Camerounais à l'étranger voulant participer à des tontines familiales. |
+
+### 3.2. Personas
+
+**Ngo, 42 ans, commerçante à Douala**
+- Gère une tontine de 15 femmes (cotisation 10 000 FCFA/mois).
+- Problème : Elle passe 2 heures par semaine à faire les comptes, et il y a toujours des retards.
+- Motivation : Gagner du temps et avoir une preuve en cas de litige.
+- Frein : Elle n'est pas très à l'aise avec la technologie.
+
+**Jean, 29 ans, cadre à Yaoundé**
+- Fait partie d'une tontine d'anciens camarades de classe (cotisation 50 000 FCFA/mois).
+- Problème : Il n'a pas confiance en le trésorier, car il n'y a aucune transparence.
+- Motivation : Voir l'historique des paiements et savoir que les autres paient aussi.
+
+---
+
+## 4. SPÉCIFICATIONS FONCTIONNELLES (V1)
+
+### 4.1. Module Gestion de Tontine (Cœur)
+
+| Fonctionnalité | Description |
+| :--- | :--- |
+| Création de tontine | Nom, montant, fréquence, nombre de membres, type (mutuelle/à enchères) |
+| Invitation des membres | Via WhatsApp, SMS, email (lien d'inscription) |
+| Suivi des cotisations | Tableau de bord avec statut (payé/en retard), historique complet |
+| Rappels automatiques | Notifications push, SMS, WhatsApp avant la date de cotisation |
+| Calcul des pénalités | Ajout automatique en cas de retard (si paramétré par le groupe) |
+| Tirage au sort | Tirage aléatoire ou ordre fixe, visible par tous |
+
+### 4.2. Module Score de Réputation (USP)
+
+| Fonctionnalité | Description |
+| :--- | :--- |
+| Calcul automatique | Score de 0 à 100 basé sur : historique de paiement, nombre de retards, litiges, tontines menées à terme |
+| Affichage public | Le score est visible par tous les membres du groupe (et par tout le monde si le profil est public) |
+| Badges | Récompenses pour les bons comportements (ex: "Paiement régulier", "Ambassadeur") |
+| Historique détaillé | Visualiser les événements qui ont fait baisser/augmenter le score |
+
+### 4.3. Module Contrat Juridique (LegalTech)
+
+| Fonctionnalité | Description |
+| :--- | :--- |
+| Génération automatique | À la création de la tontine, l'application génère un contrat conforme au droit OHADA |
+| Signature électronique | Chaque membre signe via l'application (signature certifiée) |
+| Stockage sécurisé | Contrat stocké en ligne, accessible à tout moment |
+| Export PDF | Télécharger le contrat signé en PDF |
+
+### 4.4. Module Médiation
+
+| Fonctionnalité | Description |
+| :--- | :--- |
+| Signalement de litige | Un membre peut signaler un impayé ou un désaccord |
+| Mise en relation | L'application propose une liste de médiateurs agréés (notables, juristes, assistants sociaux) |
+| Espace de médiation | Chat sécurisé et partage de documents entre les parties et le médiateur |
+| Résolution | Le médiateur propose une solution qui est enregistrée dans le système |
+
+### 4.5. Module Freemium et Monétisation
+
+| Fonctionnalité | Description |
+| :--- | :--- |
+| Gratuit | Gestion de base (jusqu'à 3 membres), score de réputation, historique 3 mois |
+| Premium (2 000 FCFA/mois) | Gestion illimitée (10+ membres), contrat juridique, médiation, export PDF, statistiques avancées, historique illimité |
+
+### 4.6. Fonctionnalités d'Inclusion
+
+| Fonctionnalité | Description |
+| :--- | :--- |
+| Multilingue | Français, anglais, bamiléké, douala, fulfulde |
+| Tutos vidéo | Tutoriels courts (en langues locales) pour expliquer le fonctionnement |
+| Support WhatsApp | Une hotline via WhatsApp pour les questions |
+
+---
+
+## 5. PARCOURS UTILISATEUR (UX)
+
+### 5.1. Inscription
+
+1. L'utilisateur saisit son numéro de téléphone.
+2. Reçoit un code de validation par SMS.
+3. Remplit son profil (nom, prénom, photo).
+4. **Le compte est actif immédiatement** (pas de KYC lourd).
+
+### 5.2. Création d'une Tontine
+
+1. L'utilisateur clique sur "Créer une tontine".
+2. Remplit le formulaire (nom, montant, fréquence, etc.).
+3. Invite les membres (par WhatsApp/SMS).
+4. Les membres reçoivent le lien, s'inscrivent et rejoignent le groupe.
+5. Une fois tous les membres inscrits, le contrat est généré et signé par tous.
+
+### 5.3. Paiement d'une Cotisation (Hors App)
+
+1. Le membre reçoit une notification de rappel.
+2. Il paie **en espèces** au trésorier ou via **Mobile Money** (transfert direct, pas via l'app).
+3. Il confirme le paiement dans l'application (ou le trésorier le fait).
+4. L'application enregistre la transaction et met à jour le score du membre.
+
+### 5.4. Tirage
+
+1. Le bénéficiaire est désigné (automatiquement ou par vote).
+2. Le trésorier **verse les fonds** au bénéficiaire (hors app).
+3. Le bénéficiaire confirme la réception dans l'application.
+
+---
+
+## 6. SPÉCIFICATIONS TECHNIQUES
+
+### 6.1. Stack Technologique
+
+| Composant | Technologie |
+| :--- | :--- |
+| Frontend (Mobile) | Flutter (iOS/Android) |
+| Backend | Node.js + Express |
+| Base de données | PostgreSQL |
+| Cache | Redis |
+| Hébergement | AWS / OVH (Cameroun) |
+| Notifications | Firebase FCM + Twilio (SMS) |
+| Signature électronique | YouSign / DocuSign |
+
+### 6.2. Intégrations Externes
+
+| Service | API | Utilisation |
+| :--- | :--- | :--- |
+| Signature électronique | YouSign | Signature des contrats |
+| Notifications SMS | Twilio | Envoi de rappels par SMS |
+| WhatsApp | WhatsApp Business API | Envoi de rappels et notifications |
+| Google Analytics / Firebase | Firebase Analytics | Suivi des utilisateurs |
+
+### 6.3. Sécurité
+
+| Couche | Mesure |
+| :--- | :--- |
+| Données en transit | HTTPS (TLS 1.3) |
+| Mots de passe | Hashé avec bcrypt |
+| Authentification | JWT avec expiration courte (15 min) |
+| Sécurité des APIs | Rate limiting, validation stricte des entrées |
+
+---
+
+## 7. MODÈLE ÉCONOMIQUE DÉTAILLÉ
+
+### 7.1. Sources de Revenus
+
+| Source | Tarif | Volume estimé (12 mois) | Revenu annuel |
+| :--- | :--- | :--- | :--- |
+| Abonnement Premium | 2 000 FCFA/mois | 2 000 utilisateurs | 48 000 000 FCFA |
+| Médiation | 5 000 FCFA/litige | 100 litiges | 500 000 FCFA |
+| **Total** | | | **48 500 000 FCFA** |
+
+### 7.2. Structure de Coûts (12 mois)
+
+| Poste | Coût estimé |
+| :--- | :--- |
+| Développement (MVP) | 15 000 000 FCFA |
+| Hébergement (Cloud) | 2 000 000 FCFA |
+| Marketing & Acquisition | 7 000 000 FCFA |
+| Équipe (2 développeurs + 1 CM) | 20 000 000 FCFA |
+| Juriste (consultant) | 3 000 000 FCFA |
+| Maintenance et support | 3 000 000 FCFA |
+| **Total** | **50 000 000 FCFA** |
+
+### 7.3. Seuil de Rentabilité
+
+- **Point mort** : 2 500 abonnés Premium (sur 12 mois).
+- **Atteint** : Fin de l'année 2 (si croissance de 10% par mois).
+
+---
+
+## 8. ROADMAP DE DÉVELOPPEMENT
+
+### Phase 1 – MVP (4 mois)
+
+| Mois | Actions |
+| :--- | :--- |
+| Mois 1 | Conception UI/UX, maquettes |
+| Mois 2 | Développement backend (API, base de données) |
+| Mois 3 | Développement frontend (Flutter) |
+| Mois 4 | Tests, corrections, bêta-test (50 utilisateurs) |
+
+### Phase 2 – Lancement (2 mois)
+
+| Mois | Actions |
+| :--- | :--- |
+| Mois 5 | Lancement sur Play Store/App Store (Douala, Yaoundé, Bafoussam) |
+| Mois 6 | Campagne marketing, acquisition des premiers 1 000 utilisateurs |
+
+### Phase 3 – V1.5 (6 mois après lancement)
+
+| Mois | Actions |
+| :--- | :--- |
+| Mois 7-8 | Recueil des feedbacks, corrections, améliorations |
+| Mois 9 | Ajout de la micro-assurance (optionnelle) |
+| Mois 10-12 | Extension à d'autres villes (Garoua, Maroua, Ngaoundéré) |
+
+---
+
+## 9. PLAN DE MARKETING & ACQUISITION
+
+### 9.1. Stratégie d'Acquisition (Budget 7M FCFA)
+
+| Action | Budget | Description |
+| :--- | :--- | :--- |
+| Ambassadeurs | 2M FCFA | Former 50 femmes commerçantes (10 par ville) qui formeront 10 personnes chacune → 500 utilisateurs |
+| Influenceurs locaux | 2M FCFA | 5 influenceurs (100k+ followers) testent et parlent de l'appli sur Instagram/TikTok |
+| Radio locale | 2M FCFA | Campagne en langues locales sur Radio Équateur, Radio Bonne Nouvelle |
+| Parrainage | 1M FCFA | Récompenser les utilisateurs qui parrainent 3 amis (1 mois Premium offert) |
+
+### 9.2. Fidélisation
+
+| Action | Description |
+| :--- | :--- |
+| Groupe WhatsApp | Communauté de "Zeners" pour échanger, poser des questions, donner des astuces |
+| Badges | Badges de fidélité (Bronze, Argent, Or) pour les paiements réguliers |
+| Concours | "Zener du trimestre" = 1 mois Premium offert |
+
+---
+
+## 10. INDICATEURS DE PERFORMANCE (KPI)
+
+| KPI | Cible | Fréquence de suivi |
+| :--- | :--- | :--- |
+| Téléchargements | 50 000 / an | Hebdomadaire |
+| Utilisateurs actifs mensuels | 20 000 | Mensuel |
+| Taux de rétention (3 mois) | > 40% | Mensuel |
+| Taux de conversion Premium | > 10% | Mensuel |
+| Taux de litige | < 2% | Mensuel |
+| Taux de paiement régulier | > 90% | Mensuel |
+| Score de satisfaction (in-app) | > 4,5/5 | Trimestriel |
+
+---
+
+## 11. RISQUES ET PLAN DE MITIGATION
+
+| Risque | Probabilité | Impact | Mitigation |
+| :--- | :--- | :--- | :--- |
+| Adoption lente | Élevée | Élevé | Campagne en langues locales, ambassadeurs, parrainage |
+| Concurrence de Djangui/yaNkap | Moyenne | Élevé | Se différencier par le score de réputation et l'absence de frais |
+| Défauts techniques | Moyenne | Élevé | Plan de test rigoureux, bêta-test, support réactif |
+| Litiges mal gérés | Moyenne | Moyen | Former les médiateurs, procédure claire, assurance juridique |
+| Manque de financement | Moyenne | Élevé | Modèle freemium, levée de fonds après la V1 (avec traction) |
+
+---
+
+## 12. LIVRABLES ASSOCIÉS
+
+| Document | Fournisseur |
+| :--- | :--- |
+| Maquettes UI/UX | Designer |
+| Code source complet | Lead Developer |
+| Documentation technique | Lead Developer |
+| Manuel utilisateur | Community Manager |
+| Contrat OHADA type | Juriste |
+| Plan de test | Équipe QA |
+
+---
+
+## 💎 CONCLUSION
+
+**« TONTINE ZEN LIGHT »** est une application **minimaliste mais puissante**, qui résout les problèmes fondamentaux de la tontine (transparence, confiance, cadre juridique) sans les complexités du séquestre bancaire.
+
+Elle est **viable économiquement** (modèle freemium), **facile à lancer** (pas d'agrément COBAC), et **rapide à développer** (4 mois de MVP).
+
+**Prochaine étape** : Valider ce cahier des charges avec vos parties prenantes, puis lancer l'appel d'offres auprès des prestataires techniques.
+
+# 📂 Autres Cahiers des Charges et Livrables pour « TONTINE ZEN LIGHT »
+
+Maintenant que le cahier des charges principal est validé (version allégée, sans séquestre), voici la liste des **autres documents stratégiques** et des **livrables concrets** à produire pour mener à bien le projet.
+
+---
+
+## PARTIE 1 : LES AUTRES CAHIERS DES CHARGES À GÉNÉRER
+
+### 1. CAHIER DES CHARGES FONCTIONNEL DÉTAILLÉ (UX/UI)
+
+**Objectif** : Détailler l'expérience utilisateur, les écrans, les parcours, et les micro-interactions.
+
+**Contenu clé** :
+- Arborescence de l'application (organigramme des pages).
+- Wireframes (maquettes filaires) de chaque écran.
+- Mockups haute-fidélité (avec charte graphique).
+- User flows pour les parcours clés :
+    - Inscription.
+    - Création d'une tontine.
+    - Paiement (hors app) et confirmation.
+    - Signalement d'un litige.
+- Règles d'accessibilité (contrastes, tailles, langues locales).
+
+**Destinataire** : Designer UI/UX, Développeur Frontend.
+
+---
+
+### 2. CAHIER DES CHARGES TECHNIQUE & ARCHITECTURE
+
+**Objectif** : Définir les choix technologiques, l'architecture du système, la sécurité, et les intégrations.
+
+**Contenu clé** :
+- Stack technique : Flutter (frontend), Node.js (backend), PostgreSQL (BDD), Redis (cache).
+- Diagramme d'architecture (API Gateway, Backend, BDD, cache).
+- Modélisation de la base de données (UML) : tables `users`, `tontines`, `transactions`, `reputation_scores`, `disputes`, `mediators`.
+- Sécurité : HTTPS, JWT, bcrypt, rate limiting.
+- Intégrations : API YouSign (signature électronique), Twilio (SMS), Firebase (notifications).
+- Hébergement : AWS ou OVH (région Afrique du Sud ou Europe).
+- Politique de sauvegarde et de récupération.
+
+**Destinataire** : Lead Developer, DevOps.
+
+---
+
+### 3. CAHIER DES CHARGES JURIDIQUE ET DE CONFORMITÉ
+
+**Objectif** : Garantir la conformité légale et protéger l'entreprise et les utilisateurs.
+
+**Contenu clé** :
+- **Conditions Générales d'Utilisation (CGU)** : À intégrer dans l'application.
+- **Politique de confidentialité** : Gestion des données personnelles (conforme à la loi camerounaise).
+- **Contrat-type de tontine (OHADA)** : Template du contrat signé par les membres.
+- **Contrat de médiation** : Engagement des médiateurs (confidentialité, impartialité).
+- **Déclaration ANTIC** : Démarche à effectuer pour la protection des données.
+- **Analyse des risques juridiques** : Impayés, litiges, responsabilité de la plateforme.
+
+**Destinataire** : Juriste (cabinet spécialisé OHADA), ANTIC.
+
+---
+
+### 4. PLAN DE TEST ET ASSURANCE QUALITÉ (QA)
+
+**Objectif** : Garantir que l'application est fiable, sécurisée et performante avant le lancement.
+
+**Contenu clé** :
+- Types de tests :
+    - Tests unitaires (80% de couverture).
+    - Tests d'intégration (API, bases de données).
+    - Tests fonctionnels (parcours utilisateur complets).
+    - Tests de performance (temps de réponse, montée en charge).
+    - Tests de sécurité (OWASP Top 10).
+    - Tests d'acceptation utilisateur (UAT avec 50 bêta-testeurs).
+- Cas de tests détaillés (ex: "Un utilisateur peut créer une tontine avec 5 membres et recevoir une notification").
+- Environnements de test (Dev, Staging, Prod).
+- Processus de signalement et de correction des bugs.
+
+**Destinataire** : Équipe QA, Lead Developer.
+
+---
+
+### 5. PLAN DE COMMUNICATION ET DE LANCEMENT (GO-TO-MARKET)
+
+**Objectif** : Assurer une acquisition efficace et une notoriété rapide de l'application.
+
+**Contenu clé** :
+- Stratégie de positionnement : "L'application qui rend la tontine transparente".
+- Plan d'acquisition :
+    - Ambassadeurs (50 femmes commerçantes).
+    - Influenceurs locaux (5 influenceurs Instagram/TikTok).
+    - Campagne radio en langues locales.
+    - Programme de parrainage.
+- Plan de fidélisation :
+    - Groupe WhatsApp "Zeners".
+    - Badges et gamification.
+    - Concours trimestriels.
+- Budget marketing détaillé (7M FCFA).
+- Calendrier des actions (pré-lancement, lancement, post-lancement).
+
+**Destinataire** : Community Manager, Équipe Marketing.
+
+---
+
+### 6. BUSINESS PLAN DÉTAILLÉ (POUR INVESTISSEURS)
+
+**Objectif** : Présenter le projet à des investisseurs ou bailleurs de fonds pour la phase de croissance.
+
+**Contenu clé** :
+- Synthèse exécutive (résumé du projet).
+- Étude de marché (taille, concurrence, opportunités).
+- Modèle économique (freemium, médiation, assurance V2).
+- Projections financières (3 ans).
+- Besoins de financement (montant recherché, utilisation des fonds).
+- Équipe et gouvernance.
+- Analyse des risques et plan de mitigation.
+
+**Destinataire** : Investisseurs, banques, partenaires.
+
+---
+
+### 7. PLAN DE GESTION DE PROJET (GOUVERNANCE)
+
+**Objectif** : Assurer une coordination efficace entre les équipes et respecter les délais.
+
+**Contenu clé** :
+- Matrice RACI (Responsable, Approbateur, Consulté, Informé).
+- Organigramme du projet (MOA, MOE, équipes).
+- Calendrier détaillé (diagramme de Gantt).
+- Procédure de validation des livrables.
+- Gestion des modifications (périmètre, budget, délais).
+- Plan de réunion (points hebdomadaires, comités de pilotage).
+
+**Destinataire** : Chef de projet, équipe projet.
+
+---
+
+## PARTIE 2 : LES LIVRABLES CONCRETS À PRODUIRE
+
+### 1. LIVRABLES POUR LA CONCEPTION (PHASE 1)
+
+| Livrable | Description | Outil recommandé |
+| :--- | :--- | :--- |
+| **Arborescence** | Organigramme des pages de l'application | Whimsical, Miro |
+| **Wireframes** | Maquettes filaires de chaque écran | Figma, Sketch |
+| **Mockups haute-fidélité** | Maquettes finales avec couleurs, polices, icônes | Figma, Adobe XD |
+| **Prototype interactif** | Simulation cliquable des parcours utilisateurs | Figma (prototype) |
+| **UI Kit** | Bibliothèque de composants (boutons, formulaires, cartes) | Figma |
+
+---
+
+### 2. LIVRABLES POUR LE DÉVELOPPEMENT (PHASE 2)
+
+| Livrable | Description | Outil recommandé |
+| :--- | :--- | :--- |
+| **Code source frontend** | Code Flutter (iOS/Android) | Git, Android Studio, VS Code |
+| **Code source backend** | API Node.js + Express | Git, VS Code, Postman |
+| **Base de données** | Scripts SQL pour PostgreSQL | pgAdmin, DBeaver |
+| **Documentation API** | Swagger/OpenAPI | Swagger Editor |
+| **Procédure de déploiement** | CI/CD avec GitHub Actions | GitHub Actions, AWS |
+| **Scripts de test** | Tests unitaires, intégration, performance | Jest, Supertest, JMeter |
+
+---
+
+### 3. LIVRABLES POUR LE DÉPLOIEMENT (PHASE 3)
+
+| Livrable | Description | Outil recommandé |
+| :--- | :--- | :--- |
+| **Application iOS** | Build iOS déployé sur TestFlight puis App Store | Xcode, App Store Connect |
+| **Application Android** | Build Android déployé sur Google Play Console | Android Studio, Google Play Console |
+| **Backoffice web** | Interface d'administration pour le suivi (utilisateurs, tontines, litiges) | React, Angular, ou Vue.js |
+| **Serveur de production** | Instance AWS/OVH avec l'application déployée | AWS EC2, RDS, S3 |
+| **Monitoring** | Tableau de bord des performances (temps de réponse, erreurs) | New Relic, Datadog |
+
+---
+
+### 4. LIVRABLES DOCUMENTAIRES ET ADMINISTRATIFS
+
+| Livrable | Description | Destinataire |
+| :--- | :--- | :--- |
+| **Manuel utilisateur** | Guide d'utilisation de l'application (en français et langues locales) | Utilisateurs finaux |
+| **Manuel administrateur** | Guide pour le backoffice | Équipe interne |
+| **Conditions Générales d'Utilisation (CGU)** | Texte juridique intégré dans l'application | Utilisateurs |
+| **Politique de confidentialité** | Texte juridique intégré dans l'application | Utilisateurs |
+| **Contrat OHADA type** | Template du contrat de tontine | Utilisateurs |
+| **Déclaration ANTIC** | Formulaire de déclaration pour la protection des données | ANTIC |
+| **Business Plan** | Document financier pour les investisseurs | Investisseurs |
+| **Plan de test** | Document décrivant les cas de tests et les résultats | Équipe QA, direction |
+| **Comptes-rendus de réunions** | Suivi des décisions prises en comité de pilotage | Toute l'équipe |
+
+---
+
+## SYNTHÈSE DES DOCUMENTS PAR PHASE
+
+| Phase | Documents à générer | Livrables à produire |
+| :--- | :--- | :--- |
+| **Phase 1 : Conception** | Cahier UX/UI, Business Plan, Plan Marketing | Wireframes, Mockups, Prototype, Business Plan finalisé |
+| **Phase 2 : Développement** | Cahier Technique, Cahier Juridique, Plan de Test | Code source, Base de données, Documentation API, Contrats juridiques |
+| **Phase 3 : Test & Déploiement** | Plan de Gestion de Projet, Plan de Communication | Application testée (iOS/Android), Backoffice, Monitoring, Manuel utilisateur |
+| **Phase 4 : Lancement** | Plan Go-to-Market finalisé | Application en production, Campagne marketing active, Ambassadeurs formés |
+
+---
+
+## 💎 PRIORISATION DES DOCUMENTS
+
+**À produire immédiatement** (avant le lancement du développement) :
+
+1.  **Cahier UX/UI** (pour le designer).
+2.  **Cahier Technique & Architecture** (pour le lead dev).
+3.  **Cahier Juridique** (pour le juriste).
+4.  **Plan de Test** (pour l'équipe QA).
+
+**À produire en parallèle du développement** :
+
+1.  **Plan Marketing** (pour le community manager).
+2.  **Business Plan** (pour les investisseurs).
+3.  **Plan de Gestion de Projet** (pour le chef de projet).
+
+---
+
+## 🔥 PROCHAINE ÉTAPE
+
+Je te propose de commencer par **générer le Cahier des Charges Fonctionnel Détaillé (UX/UI)** pour « TONTINE ZEN LIGHT », car c'est le document qui servira de base au designer pour créer les maquettes et au développeur frontend pour coder l'interface.
+
+**Acceptes-tu de passer à cette étape ?** Si oui, je te rédige ce document dans son intégralité, avec tous les détails UX/UI.
+
+# 📂 LIVRABLES COMPLÉMENTAIRES POUR « TONTINE ZEN LIGHT »
+
+Voici les **7 livrables complémentaires** au format Markdown (`.md`), basés sur la structure détaillée précédente.
+
+---
+
+# 📄 LIVRABLE 1 : SPECS_UX_UI_TONTINE_ZEN_LIGHT.md
+
+```markdown
+# Cahier des Charges Fonctionnel & UX/UI – TONTINE ZEN LIGHT
+
+**Version :** 1.0  
+**Date :** 19 Juin 2026  
+**Auteur :** [Votre Nom]  
+**Destinataire :** Designer UI/UX, Développeur Frontend
+
+---
+
+## 1. OBJECTIF ET PÉRIMÈTRE
+
+Ce document détaille l'expérience utilisateur et l'interface graphique de l'application « TONTINE ZEN LIGHT ».
+
+**Objectif** : Offrir une expérience intuitive, rassurante et inclusive, même pour des utilisateurs non-avertis.
+
+---
+
+## 2. ARBORESCENCE DE L'APPLICATION
+
+```
+Écran d'Accueil (Onboarding)
+├── Connexion / Inscription
+│   ├── Saisie du numéro de téléphone
+│   ├── Validation par SMS
+│   └── Création du profil (nom, photo)
+├── Tableau de Bord
+│   ├── Mes tontines (actives, à venir, terminées)
+│   ├── Mon score de réputation (0-100)
+│   ├── Mes notifications
+│   └── Bouton "Créer une tontine" (flottant)
+├── Créer une Tontine (formulaire)
+│   ├── Nom de la tontine
+│   ├── Montant de la cotisation
+│   ├── Fréquence (quotidienne, hebdomadaire, mensuelle)
+│   ├── Nombre de membres (3-20)
+│   ├── Type (mutuelle, à enchères)
+│   └── Invitation des membres (WhatsApp, SMS, lien)
+├── Ma Tontine (vue détaillée)
+│   ├── Liste des membres (avec scores)
+│   ├── Calendrier des cotisations
+│   ├── Historique des paiements (statut : payé/en retard)
+│   ├── Prochain tirage (date, bénéficiaire)
+│   ├── Espace de signalement de litige
+│   └── Export du contrat PDF
+├── Profil
+│   ├── Informations personnelles
+│   ├── Historique complet (tontines, paiements, litiges)
+│   ├── Paramètres (langue, notifications, confidentialité)
+│   └── Aide & Support
+└── Menu (hamburger)
+    ├── Devenir Premium
+    ├── Médiateurs (liste)
+    ├── FAQ
+    ├── Contact
+    └── Déconnexion
+```
+
+---
+
+## 3. USER FLOWS (Parcours Clés)
+
+### 3.1. Inscription
+
+1. L'utilisateur ouvre l'application.
+2. Écran d'accueil : "Rejoignez la communauté ZEN !".
+3. Saisie du numéro de téléphone.
+4. Validation du code par SMS (automatique ou manuel).
+5. Formulaire : nom, prénom, photo (optionnelle).
+6. **Compte actif immédiatement** (pas de KYC lourd).
+7. **Feedback** : "Félicitations ! Vous êtes prêt(e) à créer ou rejoindre une tontine."
+
+### 3.2. Création d'une Tontine
+
+1. L'utilisateur clique sur le bouton "+" (flottant en bas à droite).
+2. Remplit le formulaire (nom, montant, fréquence, nombre de membres, type).
+3. Clique sur "Créer".
+4. L'application génère un **lien d'invitation**.
+5. L'utilisateur partage le lien via WhatsApp, SMS, ou email.
+6. Les membres cliquent sur le lien, s'inscrivent (si pas encore) et rejoignent la tontine.
+7. **Dès que tous les membres sont inscrits** :
+    - L'application génère le **contrat OHADA** en PDF.
+    - Chaque membre signe électroniquement.
+    - La tontine est officiellement active.
+8. **Feedback** : "Tontine créée avec succès ! Le premier tour commencera le [date]."
+
+### 3.3. Paiement d'une Cotisation (Hors App)
+
+1. Le membre reçoit une **notification push** : "Cotisation de [X] FCFA due dans 24h."
+2. Il paie **hors application** (espèces au trésorier ou transfert Mobile Money).
+3. **Le trésorier** ouvre l'application, va dans la tontine, et clique sur "Confirmer le paiement" pour le membre concerné.
+4. L'application met à jour le statut du membre : "Payé".
+5. **Impact** : Le **score de réputation** du membre augmente.
+6. **Notification** : "Paiement confirmé pour [Nom]."
+
+### 3.4. Tirage (Réception des Fonds)
+
+1. À la date prévue, l'application **calcule automatiquement** le bénéficiaire (tirage aléatoire ou ordre fixe).
+2. Une notification est envoyée à tous les membres : "Le bénéficiaire du tour est [Nom]."
+3. Le **trésorier** verse les fonds au bénéficiaire (hors application).
+4. Le bénéficiaire confirme la réception dans l'application.
+5. **Feedback** : "Tirage validé. Prochain tirage le [date]."
+
+### 3.5. Signalement d'un Litige
+
+1. L'utilisateur va dans la tontine, section "Litige".
+2. Sélectionne le type (impayé, désaccord, comportement).
+3. Décrit le problème (texte libre).
+4. Sélectionne un médiateur dans la liste proposée.
+5. L'application notifie le médiateur et crée un espace de médiation sécurisé (chat).
+6. Le médiateur échange avec les parties et propose une solution.
+7. Une fois la résolution acceptée, le litige est clôturé.
+8. **Feedback** : "Litige clôturé. Merci d'avoir utilisé la médiation ZEN."
+
+---
+
+## 4. SPÉCIFICATIONS UI (CHARTE GRAPHIQUE)
+
+### 4.1. Palette de Couleurs
+
+| Couleur | Usage | Code Hex |
+| :--- | :--- | :--- |
+| **Bleu Profond** | Arrière-plans, boutons principaux, confiance | `#1A365D` |
+| **Vert Émeraude** | Validation, succès, paiements confirmés | `#2F855A` |
+| **Or** | Accents, badges, récompenses | `#D69E2E` |
+| **Blanc** | Textes sur fonds sombres, cartes | `#FFFFFF` |
+| **Gris Clair** | Textes secondaires, fonds secondaires | `#F7FAFC` |
+| **Rouge** | Erreurs, alertes, impayés | `#E53E3E` |
+
+### 4.2. Typographie
+
+- **Principale** : Montserrat (Google Font) – lisible, moderne.
+- **Titres** : Montserrat Bold, taille 20-24px.
+- **Corps** : Montserrat Regular, taille 14-16px.
+- **Chiffres** : Montserrat Medium, taille 16-18px.
+
+### 4.3. Iconographie
+
+- Thème : Confiance (bouclier, cadenas), Communauté (mains, personnes), Finance (pièces, graphiques, calendrier).
+- Utiliser des icônes vectorielles simples et reconnaissables (FontAwesome).
+
+### 4.4. Principes d'Accessibilité
+
+- Taille minimum des textes : **14px**.
+- Contraste élevé (ex: bleu profond sur blanc).
+- Compatibilité avec les lecteurs d'écran.
+- Option de taille de police adaptative.
+
+---
+
+## 5. ANIMATIONS ET MICRO-INTERACTIONS
+
+| Action | Animation |
+| :--- | :--- |
+| Chargement | Spinner élégant (pas de page blanche) |
+| Confirmation de paiement | Coche verte avec brève vibration |
+| Navigation | Transition en glissement (slide) |
+| Notification | Pop-up en haut de l'écran (toast) |
+| Score de réputation | Barre de progression animée (0 → 100) |
+
+---
+
+## 6. LIVRABLES ATTENDUS DU DESIGNER
+
+1. **Wireframes** (maquettes filaires de chaque écran).
+2. **Mockups haute-fidélité** (maquettes finales avec charte graphique).
+3. **Prototype interactif** (via Figma) pour simuler les parcours utilisateurs.
+4. **UI Kit** (bibliothèque de composants : boutons, formulaires, cartes, notifications).
+5. **Fichiers sources** (Figma, Sketch, ou Adobe XD).
+```
+
+---
+
+# 📄 LIVRABLE 2 : SPECS_TECHNIQUES_ARCHITECTURE_ZEN_LIGHT.md
+
+```markdown
+# Cahier des Charges Technique & Architecture – TONTINE ZEN LIGHT
+
+**Version :** 1.0  
+**Date :** 19 Juin 2026  
+**Auteur :** [Votre Nom]  
+**Destinataire :** Lead Developer, DevOps
+
+---
+
+## 1. OBJECTIF
+
+Ce document définit l'architecture technique, les choix technologiques, et les exigences de sécurité et de performance.
+
+---
+
+## 2. CHOIX TECHNOLOGIQUES
+
+### 2.1. Frontend (Application Mobile)
+
+| Composant | Technologie | Justification |
+| :--- | :--- | :--- |
+| Framework | Flutter (Dart) | Multiplateforme iOS/Android à partir d'un seul codebase |
+| État | Provider ou Riverpod | Gestion d'état simple et performante |
+| Réseau | `http` ou `Dio` | Appels API RESTful |
+| Stockage local | SharedPreferences | Stockage des tokens et préférences utilisateur |
+
+### 2.2. Backend (API)
+
+| Composant | Technologie | Justification |
+| :--- | :--- | :--- |
+| Langage | Node.js (TypeScript) | Léger, rapide, écosystème riche |
+| Framework | Express.js | Framework minimalist pour APIs |
+| Authentification | JWT (JSON Web Tokens) | Sessions sans état, adaptées aux mobiles |
+| Validation | Joi ou Zod | Validation stricte des entrées |
+
+### 2.3. Base de Données
+
+| Composant | Technologie | Justification |
+| :--- | :--- | :--- |
+| Base principale | PostgreSQL | Relationnelle, ACID, fiable |
+| Cache | Redis | Gestion des sessions, notifications, mise en cache |
+| Stockage de fichiers | AWS S3 / OVH | Contrats PDF, photos de profil |
+
+### 2.4. Infrastructure (Hébergement)
+
+| Composant | Choix | Justification |
+| :--- | :--- | :--- |
+| Cloud | AWS (région Afrique du Sud) ou OVH (France) | Proximité, souveraineté des données |
+| Serveur | EC2 (ou ECS pour conteneurs) | Scalable |
+| Base de données | RDS (PostgreSQL) | Géré et sauvegardé automatiquement |
+| Cache | ElastiCache (Redis) | Performance |
+| Stockage | S3 | Contrats, photos |
+| CDN | CloudFront | Accélération des assets |
+
+---
+
+## 3. ARCHITECTURE DU SYSTÈME
+
+```
+[Application Mobile (Flutter)]
+         │
+         ▼
+  [API Gateway (Nginx)]
+         │
+         ▼
+[Backend API (Node.js/Express)]
+         │
+         ├─────────────── [Base de Données PostgreSQL]
+         │
+         ├─────────────── [Cache Redis]
+         │
+         ├─────────────── [Service Signature Électronique (YouSign)]
+         │
+         ├─────────────── [Service Notifications (Firebase FCM + Twilio)]
+         │
+         └─────────────── [Stockage S3/OVH]
+```
+
+### 3.1. Flux de Données (Exemple : Confirmation d'un Paiement)
+
+1. Le trésorier ouvre l'application et appuie sur "Confirmer le paiement".
+2. Le frontend envoie une requête POST à `/api/payments/confirm` avec `member_id` et `tontine_id`.
+3. Le backend :
+    - Vérifie que l'utilisateur est autorisé (trésorier ou membre du groupe).
+    - Met à jour le statut du paiement dans la table `transactions`.
+    - Calcule et met à jour le score de réputation du membre.
+    - Envoie une notification push à tous les membres.
+4. Le frontend affiche une confirmation et met à jour le tableau de bord.
+5. **Temps de réponse cible** : < 300ms.
+
+---
+
+## 4. MODÉLISATION DE LA BASE DE DONNÉES (UML)
+
+### Tables Principales
+
+| Table | Champs clés |
+| :--- | :--- |
+| **`users`** | `id`, `phone_number`, `first_name`, `last_name`, `photo_url`, `reputation_score`, `is_premium`, `created_at` |
+| **`tontines`** | `id`, `name`, `amount`, `frequency`, `type`, `status`, `contract_url`, `created_at` |
+| **`tontine_members`** | `id`, `tontine_id`, `user_id`, `role` (admin/member), `joined_at`, `signature_status` |
+| **`transactions`** | `id`, `tontine_id`, `user_id`, `type` (cotisation/tirages), `amount`, `status` (paid/late), `confirmed_at` |
+| **`reputation_events`** | `id`, `user_id`, `event_type` (paiement/retard/litige), `score_delta`, `created_at` |
+| **`disputes`** | `id`, `tontine_id`, `reporter_id`, `defendant_id`, `mediator_id`, `description`, `status`, `resolution` |
+| **`mediators`** | `id`, `user_id`, `expertise`, `availability`, `rating` |
+
+---
+
+## 5. SÉCURITÉ
+
+| Couche | Mesure |
+| :--- | :--- |
+| Données en transit | HTTPS avec TLS 1.3 |
+| Données sensibles | Chiffrement AES-256 (base de données, S3) |
+| Mots de passe | Hashés avec bcrypt (coût 12) |
+| Authentification | JWT (expiration 15 min) + Refresh Token |
+| 2FA | Optionnel (pour les transactions > 500 000 FCFA) |
+| Rate Limiting | 100 requêtes/minute par IP |
+| Validation des entrées | Zod ou Joi (prévention injection SQL/XSS) |
+| Logs | Audit des accès (qui, quand, quelle action) |
+
+---
+
+## 6. INTÉGRATIONS EXTERNES
+
+| Service | API | Utilisation |
+| :--- | :--- | :--- |
+| YouSign | API YouSign | Signature électronique des contrats |
+| Twilio | API Twilio | Envoi de SMS (notifications, rappels) |
+| Firebase | FCM (Firebase Cloud Messaging) | Notifications push |
+| WhatsApp | WhatsApp Business API | Envoi de rappels et notifications (optionnel) |
+
+---
+
+## 7. PERFORMANCES ET SCALABILITÉ
+
+- **Temps de réponse** : < 300ms pour 95% des requêtes.
+- **Montée en charge** : Architecture horizontale (possibilité d'ajouter des instances backend) avec un load balancer.
+- **Cache** : Mise en cache des données fréquentes (ex: scores de réputation) dans Redis.
+- **Indexation** : Indexer `user_id`, `tontine_id`, `status` dans les tables.
+
+---
+
+## 8. LIVRABLES ATTENDUS DU LEAD DEV
+
+1. **Diagramme d'architecture**.
+2. **Schéma de base de données** (scripts SQL).
+3. **Documentation API** (Swagger/OpenAPI).
+4. **Code source complet** (frontend, backend, scripts).
+5. **Procédure de déploiement** (CI/CD avec GitHub Actions).
+6. **Procédure de sauvegarde** (base de données, fichiers S3).
+```
+
+---
+
+# 📄 LIVRABLE 3 : LEGAL_COMPLIANCE_ZEN_LIGHT.md
+
+```markdown
+# Cahier des Charges Juridique & Conformité – TONTINE ZEN LIGHT
+
+**Version :** 1.0  
+**Date :** 19 Juin 2026  
+**Auteur :** [Votre Nom] + Cabinet d'avocats  
+**Destinataire :** Juriste, ANTIC
+
+---
+
+## 1. OBJECTIF
+
+Ce document définit le cadre juridique et réglementaire de l'application. La V1 ne manipule pas de fonds (pas d'agrément COBAC), mais doit respecter les lois sur les données personnelles et les contrats.
+
+---
+
+## 2. CADRE RÉGLEMENTAIRE APPLICABLE
+
+### 2.1. OHADA
+- **Acte Uniforme sur les Contrats** : Pour le template du contrat de tontine.
+
+### 2.2. Protection des Données (Cameroun)
+- Loi n° 2010/012 du 21 décembre 2010 relative à la cybersécurité.
+- Déclaration à l'ANTIC (Agence Nationale des Technologies de l'Information et de la Communication).
+
+### 2.3. Signature Électronique
+- La loi reconnaît la signature électronique si elle est certifiée par un prestataire agréé (ex: YouSign, partenaire de l'ANTIC).
+
+---
+
+## 3. DOCUMENTS JURIDIQUES À PRODUIRE
+
+### 3.1. Conditions Générales d'Utilisation (CGU)
+
+**À intégrer dans l'application** (au moment de l'inscription).
+
+**Contenu** :
+- Description du service.
+- Responsabilité de la plateforme (limitée).
+- Absence de manipulation de fonds par l'application.
+- Clause de résiliation.
+- Clause de confidentialité.
+
+**Modèle** :
+```
+ARTICLE 1 : OBJET
+L'application TONTINE ZEN LIGHT est un outil de gestion de tontine. Elle ne collecte ni ne manipule les fonds des utilisateurs.
+
+ARTICLE 2 : RESPONSABILITÉ
+La plateforme n'est pas responsable des impayés entre membres. Elle fournit un cadre de transparence et de médiation.
+
+ARTICLE 3 : DONNÉES PERSONNELLES
+Les données collectées sont utilisées uniquement dans le cadre du service. L'utilisateur peut demander la suppression de ses données à tout moment.
+
+ARTICLE 4 : RÉSILIATION
+L'utilisateur peut supprimer son compte à tout moment.
+```
+
+### 3.2. Politique de Confidentialité
+
+**Contenu** :
+- Données collectées (nom, téléphone, photo).
+- Finalité (gestion de la tontine, score de réputation).
+- Droits des utilisateurs (accès, rectification, suppression).
+- Conservation des données (durée légale).
+
+### 3.3. Règlement Intérieur Type (Contrat de Tontine)
+
+**Template généré automatiquement par l'application** :
+
+```
+CONTRAT DE TONTINE
+Entre les soussignés :
+
+[Noms des membres]
+
+Article 1 : Montant et fréquence
+- Cotisation : [X] FCFA
+- Fréquence : [quotidienne/hebdomadaire/mensuelle]
+- Durée : [Y] cycles
+
+Article 2 : Ordre de tirage
+- [Ordre défini ou tirage au sort]
+
+Article 3 : Pénalités
+- En cas de retard, une pénalité de [Z] FCFA sera appliquée.
+
+Article 4 : Règlement des litiges
+- Tout litige sera soumis à une médiation préalable.
+
+Fait à [ville], le [date]
+Signatures électroniques : [membres]
+```
+
+---
+
+## 4. DÉMARCHES ADMINISTRATIVES
+
+### 4.1. Déclaration ANTIC
+
+- **Dépôt** : Formulaire de déclaration à l'ANTIC (en ligne ou physique).
+- **Délai** : 1 mois avant le lancement de l'application.
+- **Frais** : Environ 100 000 FCFA (à vérifier).
+- **Récépissé** : À conserver et à afficher sur l'application.
+
+### 4.2. Dépôt de la Marque
+
+- **Déposer** le nom « TONTINE ZEN » auprès de l'OAPI (Organisation Africaine de la Propriété Intellectuelle).
+- **Coût** : Environ 500 000 FCFA.
+- **Durée** : 10 ans renouvelables.
+
+---
+
+## 5. GESTION DES LITIGES ET MÉDIATION
+
+### 5.1. Processus de Médiation
+
+1. Un membre signale un litige via l'application.
+2. Il sélectionne un médiateur agréé.
+3. Le médiateur est notifié et accepte la mission.
+4. Un espace de médiation sécurisé est créé (chat + partage de documents).
+5. Le médiateur propose une solution.
+6. Si acceptée, le litige est clôturé.
+7. Si non, le membre peut saisir le tribunal (avec le contrat comme preuve).
+
+### 5.2. Rôle du Médiateur
+
+- Connaître le droit OHADA et la culture locale.
+- Respecter la confidentialité.
+- Être impartial.
+- Rédiger un procès-verbal de médiation en cas d'échec.
+
+---
+
+## 6. LIVRABLES ATTENDUS DU JURISTE
+
+1. **CGU** (prêtes à intégrer dans l'application).
+2. **Politique de confidentialité** (prête à intégrer).
+3. **Règlement intérieur type** (contrat de tontine).
+4. **Contrat de médiation** (entre la plateforme et les médiateurs).
+5. **Déclaration ANTIC** remplie et déposée.
+6. **Dépôt de la marque OAPI** effectué.
+7. **Mémorandum juridique** (analyse des risques et plan de mitigation).
+```
+
+---
+
+# 📄 LIVRABLE 4 : PLAN_TEST_QA_ZEN_LIGHT.md
+
+```markdown
+# Plan de Test et Assurance Qualité – TONTINE ZEN LIGHT
+
+**Version :** 1.0  
+**Date :** 19 Juin 2026  
+**Auteur :** [Votre Nom]  
+**Destinataire :** Équipe QA, Lead Developer
+
+---
+
+## 1. OBJECTIF
+
+Ce document définit la stratégie de test pour garantir la fiabilité, la sécurité et la performance de l'application avant le lancement.
+
+---
+
+## 2. TYPES DE TESTS
+
+### 2.1. Tests Unitaires
+- **Objectif** : Vérifier chaque petite fonction (ex: calcul d'un score de réputation).
+- **Outil** : Jest (JavaScript) pour le backend.
+- **Cible** : 80% de couverture de code minimum.
+
+### 2.2. Tests d'Intégration
+- **Objectif** : Vérifier que les modules interagissent correctement (ex: l'API de paiement communique bien avec la base de données).
+- **Outil** : Supertest, Postman, ou scripts automatisés.
+
+### 2.3. Tests Fonctionnels (End-to-End)
+- **Objectif** : Simuler le parcours complet d'un utilisateur (ex: inscription, création de tontine, paiement, tirage).
+- **Outil** : Cypress ou Appium.
+- **Environnement** : Serveur de test dédié (staging).
+
+### 2.4. Tests de Performance
+- **Objectif** : Vérifier le comportement de l'application sous charge (ex: 1 000 utilisateurs simultanés).
+- **Outil** : Apache JMeter ou K6.
+- **Métriques** : Temps de réponse < 300ms, taux d'erreur < 1%.
+
+### 2.5. Tests de Sécurité
+- **Objectif** : Identifier les vulnérabilités (OWASP Top 10).
+- **Outil** : OWASP ZAP, Burp Suite.
+- **Points clés** : Injections SQL, XSS, authentification, contrôle d'accès.
+
+### 2.6. Tests d'Acceptation Utilisateur (UAT)
+- **Objectif** : Valider l'application avec un groupe pilote de 50 utilisateurs réels (bêta-test).
+- **Méthode** : TestFlight pour iOS, Google Play Console pour Android.
+- **Feedback** : Recueillir les retours via un formulaire in-app.
+
+---
+
+## 3. CAS DE TESTS CLÉS
+
+### 3.1. Inscription
+| ID | Scénario | Résultat attendu |
+| :--- | :--- | :--- |
+| TC-01 | Saisir un numéro de téléphone valide | Réception d'un code SMS |
+| TC-02 | Saisir un numéro invalide | Message d'erreur "Numéro invalide" |
+| TC-03 | S'inscrire avec un numéro déjà utilisé | Message "Ce numéro est déjà enregistré" |
+| TC-04 | Télécharger une photo de profil | Photo affichée sur le profil |
+
+### 3.2. Création de Tontine
+| ID | Scénario | Résultat attendu |
+| :--- | :--- | :--- |
+| TC-05 | Créer une tontine avec tous les champs remplis | Tontine créée, lien généré |
+| TC-06 | Tenter de créer avec moins de 3 membres | Message d'erreur |
+| TC-07 | Inviter des membres via WhatsApp | Lien partagé correctement |
+
+### 3.3. Paiement et Confirmation
+| ID | Scénario | Résultat attendu |
+| :--- | :--- | :--- |
+| TC-08 | Le trésorier confirme un paiement | Statut "Payé", score mis à jour |
+| TC-09 | Un membre tente de confirmer un paiement pour un autre sans être trésorier | Message d'erreur "Non autorisé" |
+
+### 3.4. Tirage
+| ID | Scénario | Résultat attendu |
+| :--- | :--- | :--- |
+| TC-10 | Tirage aléatoire | Bénéficiaire désigné, notification envoyée |
+| TC-11 | Tirage avec ordre fixe | Le bénéficiaire est celui prévu |
+
+### 3.5. Médiation
+| ID | Scénario | Résultat attendu |
+| :--- | :--- | :--- |
+| TC-12 | Signaler un litige et choisir un médiateur | Médiateur notifié, espace créé |
+| TC-13 | Le médiateur propose une solution | Notification envoyée aux parties |
+
+---
+
+## 4. ENVIRONNEMENTS DE TEST
+
+| Environnement | Utilisation | URL/Accès |
+| :--- | :--- | :--- |
+| Développement (Dev) | Tests unitaires et intégration | Localhost / Serveur dev |
+| Recette (Staging) | Tests fonctionnels et UAT | staging.tontinezen.com |
+| Production (Prod) | Application en ligne | tontinezen.com |
+
+---
+
+## 5. PROCESSUS DE SIGNALEMENT DE BUGS
+
+1. Un testeur ou un utilisateur identifie un bug.
+2. Il le signale via l'outil de gestion de projet (ex: Jira, Trello, GitHub Issues).
+3. Le bug est priorisé : P0 = bloquant, P1 = majeur, P2 = mineur.
+4. Un développeur corrige le bug.
+5. Le testeur vérifie la correction.
+6. Le bug est marqué "Résolu".
+
+---
+
+## 6. LIVRABLES ATTENDUS DU TEAM QA
+
+1. **Plan de test** (ce document).
+2. **Cas de tests** (fichier Excel ou Google Sheets).
+3. **Rapport de tests** (résultats des tests unitaires, d'intégration, de performance).
+4. **Rapport d'audit de sécurité**.
+5. **Rapport de bêta-test** (retours utilisateurs et bugs identifiés).
+```
+
+---
+
+# 📄 LIVRABLE 5 : PLAN_MARKETING_GO_TO_MARKET_ZEN_LIGHT.md
+
+```markdown
+# Plan Marketing & Go-to-Market – TONTINE ZEN LIGHT
+
+**Version :** 1.0  
+**Date :** 19 Juin 2026  
+**Auteur :** [Votre Nom]  
+**Destinataire :** Community Manager, Équipe Marketing
+
+---
+
+## 1. OBJECTIF
+
+Assurer une acquisition efficace et une notoriété rapide de l'application dans les zones urbaines ciblées.
+
+---
+
+## 2. POSITIONNEMENT
+
+**Tagline** : *"La tontine transparente qui protège votre réputation."*
+
+**Valeur ajoutée** :
+- Transparence totale (historique visible par tous).
+- Score de réputation (pression sociale positive).
+- Cadre juridique (contrat OHADA).
+- 100% gratuit (version de base).
+
+---
+
+## 3. STRATÉGIE D'ACQUISITION (Budget : 7M FCFA)
+
+### 3.1. Ambassadeurs (2M FCFA)
+
+| Action | Détails |
+| :--- | :--- |
+| Recrutement | 50 femmes commerçantes (20 à Douala, 20 à Yaoundé, 10 à Bafoussam) |
+| Rémunération | 40 000 FCFA/mois pendant 3 mois (frais de formation + motivation) |
+| Mission | Former 10 personnes chacune → 500 utilisateurs |
+| Formation | 2 jours : mécanique de l'appli, discours de vente, démonstration |
+
+### 3.2. Influenceurs Locaux (2M FCFA)
+
+| Action | Détails |
+| :--- | :--- |
+| Profils | 5 influenceurs (100k+ followers sur Instagram/TikTok) |
+| Rémunération | 400 000 FCFA chacun |
+| Contenu | 2 posts + 1 story par influenceur, montrant l'application en action |
+| Hashtag | `#TontineZEN` `#LaTontineQuiProtege` |
+
+### 3.3. Radio Locale (2M FCFA)
+
+| Action | Détails |
+| :--- | :--- |
+| Stations | Radio Équateur, Radio Bonne Nouvelle, et 1 radio locale à Bafoussam |
+| Langues | Français + langues locales (bamiléké, douala) |
+| Spots | 3 spots de 30 secondes, diffusés 3 fois par jour pendant 1 mois |
+| Message | "La tontine devient transparente. Téléchargez TONTINE ZEN LIGHT." |
+
+### 3.4. Programme de Parrainage (1M FCFA)
+
+| Action | Détails |
+| :--- | :--- |
+| Principe | "Parraine 3 amis, et gagne 1 mois Premium offert." |
+| Suivi | L'application génère un code de parrainage unique |
+| Récompense | 1 mois d'abonnement Premium (valeur 2 000 FCFA) |
+| Coût | Estimé à 1M FCFA pour les 100 premiers parrains |
+
+---
+
+## 4. STRATÉGIE DE FIDÉLISATION (Budget : 1M FCFA)
+
+### 4.1. Communauté "Zeners"
+
+| Action | Détails |
+| :--- | :--- |
+| Groupe WhatsApp | Groupe de discussion pour les utilisateurs (astuces, témoignages, support) |
+| Objectif | 500 membres dans les 3 premiers mois |
+| Animation | Community Manager poste des astuces 2x/semaine |
+
+### 4.2. Gamification et Badges
+
+| Badge | Condition |
+| :--- | :--- |
+| **Zener Bronze** | 10 paiements confirmés |
+| **Zener Argent** | 25 paiements confirmés |
+| **Zener Or** | 50 paiements confirmés |
+| **Ambassadeur** | 10 parrainages réussis |
+
+### 4.3. Concours Trimestriel
+
+| Action | Détails |
+| :--- | :--- |
+| "Zener du Trimestre" | Meilleur score de réputation (ex: 100% de paiements à temps) |
+| Récompense | 3 mois Premium offerts + badge exclusif |
+
+---
+
+## 5. CALENDRIER PRÉ-LANCEMENT
+
+| Date | Action |
+| :--- | :--- |
+| J-60 | Recrutement et formation des ambassadeurs |
+| J-45 | Campagne radio (début) |
+| J-30 | Posts teaser des influenceurs |
+| J-15 | Lancement du programme de parrainage |
+| J-0 | Lancement officiel sur Play Store & App Store |
+
+---
+
+## 6. BUDGET SYNTHÉTIQUE
+
+| Poste | Budget |
+| :--- | :--- |
+| Ambassadeurs | 2 000 000 FCFA |
+| Influenceurs | 2 000 000 FCFA |
+| Radio locale | 2 000 000 FCFA |
+| Parrainage | 1 000 000 FCFA |
+| **Total** | **7 000 000 FCFA** |
+
+---
+
+## 7. KPI DE SUIVI
+
+| KPI | Cible | Fréquence |
+| :--- | :--- | :--- |
+| Téléchargements | 50 000 en 12 mois | Hebdomadaire |
+| Utilisateurs actifs | 20 000 / mois | Mensuel |
+| Taux de parrainage | > 1,5 (moyenne) | Mensuel |
+| Taux de rétention | > 40% à 3 mois | Mensuel |
+| Taux de conversion Premium | > 10% | Mensuel |
+
+---
+
+## 8. LIVRABLES ATTENDUS DU CM
+
+1. **Liste des ambassadeurs** recrutés et formés.
+2. **Groupes WhatsApp** créés et animés.
+3. **Posts des influenceurs** publiés.
+4. **Spots radio** enregistrés et diffusés.
+5. **Rapport d'acquisition** mensuel (téléchargements, sources, taux de conversion).
+```
+
+---
+
+# 📄 LIVRABLE 6 : BUSINESS_PLAN_ZEN_LIGHT.md
+
+```markdown
+# Plan d'Affaires (Business Plan) – TONTINE ZEN LIGHT
+
+**Version :** 1.0  
+**Date :** 19 Juin 2026  
+**Auteur :** [Votre Nom]  
+**Destinataire :** Investisseurs, Banques, Partenaires
+
+---
+
+## 1. SYNTHÈSE EXÉCUTIVE
+
+« TONTINE ZEN LIGHT » est une application mobile qui **transforme la tontine traditionnelle** en un espace de transparence et de confiance, sans manipuler les fonds des utilisateurs.
+
+**Valeur ajoutée** :
+- Score de réputation public (pression sociale positive).
+- Contrat juridique OHADA (preuve en cas de litige).
+- Médiation intégrée (résolution à l'amiable).
+- 100% gratuit en version de base.
+
+**Objectif** : Atteindre 50 000 téléchargements et 2 000 abonnés Premium en 12 mois.
+
+**Besoin de financement** : 20 000 000 FCFA (pour le MVP et le lancement).
+
+---
+
+## 2. ÉTUDE DE MARCHÉ
+
+### 2.1. Taille du Marché
+
+- **Cameroun** : 50% de la population pratique la tontine (≈ 14 millions de personnes).
+- **Marché total adressable** : 14 millions de personnes.
+- **Marché cible (urbain)** : 5 millions de personnes (Douala, Yaoundé, Bafoussam).
+
+### 2.2. Concurrence
+
+| Concurrent | Positionnement | Forces | Faiblesses |
+| :--- | :--- | :--- | :--- |
+| Djangui | Gestionnaire de tontine | Pionnier, 50k utilisateurs | Frais de transaction, pas de réputation |
+| yaNkap | Super-app financière | Multi-fonctionnalités | Récent, faible adoption |
+| Orange Max it | Tontine via Mobile Money | Intégration Orange Money | Pas de cadre juridique |
+| **TONTINE ZEN LIGHT** | **Transparence + Réputation** | **Gratuit, contrat, médiation** | **Nouveau, à bâtir** |
+
+### 2.3. Avantage Concurrentiel
+
+- **Score de réputation public** : Un mécanisme de confiance puissant.
+- **Contrat OHADA** : Cadre juridique clair.
+- **Modèle freemium** : Accessible à tous.
+
+---
+
+## 3. MODÈLE ÉCONOMIQUE
+
+### 3.1. Sources de Revenus
+
+| Source | Tarif | Volume estimé (12 mois) | Revenu annuel |
+| :--- | :--- | :--- | :--- |
+| Abonnement Premium | 2 000 FCFA/mois | 2 000 utilisateurs | 48 000 000 FCFA |
+| Médiation | 5 000 FCFA/litige | 100 litiges | 500 000 FCFA |
+| **Total** | | | **48 500 000 FCFA** |
+
+### 3.2. Structure de Coûts (12 mois)
+
+| Poste | Coût estimé |
+| :--- | :--- |
+| Développement (MVP) | 15 000 000 FCFA |
+| Hébergement (Cloud) | 2 000 000 FCFA |
+| Marketing & Acquisition | 7 000 000 FCFA |
+| Équipe (2 devs + 1 CM) | 20 000 000 FCFA |
+| Juriste (consultant) | 3 000 000 FCFA |
+| Maintenance et support | 3 000 000 FCFA |
+| **Total** | **50 000 000 FCFA** |
+
+### 3.3. Seuil de Rentabilité
+
+- **Point mort** : 2 500 abonnés Premium (sur 12 mois).
+- **Atteint** : Fin de l'année 2 (si croissance de 10% par mois).
+
+---
+
+## 4. PROJECTIONS FINANCIÈRES (3 ans)
+
+| Indicateur | Année 1 | Année 2 | Année 3 |
+| :--- | :--- | :--- | :--- |
+| Utilisateurs actifs | 20 000 | 50 000 | 100 000 |
+| Abonnés Premium | 2 000 | 5 000 | 10 000 |
+| Revenus (FCFA) | 48 000 000 | 120 000 000 | 240 000 000 |
+| Coûts (FCFA) | 50 000 000 | 60 000 000 | 70 000 000 |
+| Résultat net (FCFA) | -2 000 000 | +60 000 000 | +170 000 000 |
+| **Seuil de rentabilité** | **Année 2** | | |
+
+---
+
+## 5. BESOINS DE FINANCEMENT
+
+- **Montant recherché** : 20 000 000 FCFA (≈ 30 000 €).
+- **Utilisation des fonds** :
+    - Développement MVP : 15 000 000 FCFA.
+    - Marketing initial : 5 000 000 FCFA.
+- **Contrepartie** : 15% du capital social de la société.
+
+---
+
+## 6. ÉQUIPE
+
+| Rôle | Personne | Compétences |
+| :--- | :--- | :--- |
+| DG | [Vous] | Vision stratégique, business |
+| CTO | À recruter | Architecture, développement |
+| Juriste | Cabinet partenaire | OHADA, conformité |
+| Community Manager | À recruter | Marketing, réseaux sociaux |
+
+---
+
+## 7. RISQUES ET PLAN DE MITIGATION
+
+| Risque | Impact | Mitigation |
+| :--- | :--- | :--- |
+| Adoption lente | Élevé | Campagne en langues locales, ambassadeurs |
+| Concurrence | Moyen | Se différencier par la réputation et le contrat |
+| Défauts techniques | Élevé | Plan de test rigoureux, bêta-test |
+| Manque de financement | Élevé | Levée de fonds, modèle freemium |
+
+---
+
+## 8. LIVRABLES ATTENDUS
+
+1. **Pitch Deck** (10 slides) pour les investisseurs.
+2. **Tableur financier** (excel) avec les projections détaillées.
+3. **Plan de trésorerie** pour les 12 premiers mois.
+4. **Étude de marché** complète (sondages, entretiens).
+```
+
+---
+
+# 📄 LIVRABLE 7 : RACI_GOUVERNANCE_ZEN_LIGHT.md
+
+```markdown
+# Matrice RACI et Gouvernance – TONTINE ZEN LIGHT
+
+**Version :** 1.0  
+**Date :** 19 Juin 2026  
+**Auteur :** [Votre Nom]  
+**Destinataire :** Toute l'équipe projet
+
+---
+
+## 1. OBJECTIF
+
+Ce document définit les rôles et responsabilités de chaque intervenant dans le projet.
+
+**Légende** :
+- **R** = Responsable (Réalise l'action)
+- **A** = Approbateur (Valide)
+- **C** = Consulté (Donne son avis)
+- **I** = Informé (Est tenu au courant)
+
+---
+
+## 2. ORGANIGRAMME DU PROJET
+
+```
+[Comité de Pilotage] (Vous + Investisseurs)
+    │
+    ├── [Chef de Projet] (Vous)
+    │       │
+    │       ├── [MOA] – Vous / Équipe interne
+    │       │
+    │       ├── [MOE] – Prestataire technique
+    │       │       ├── Lead Développeur
+    │       │       ├── Développeur Frontend (Flutter)
+    │       │       ├── Développeur Backend (Node.js)
+    │       │       └── DevOps
+    │       │
+    │       ├── [Juriste] – Cabinet d'avocats
+    │       │
+    │       ├── [Designer UI/UX] – Prestataire
+    │       │
+    │       └── [Community Manager] – Interne ou prestataire
+```
+
+---
+
+## 3. MATRICE RACI
+
+| Tâche / Activité | MOA (Vous) | MOE (Dev) | Juriste | Designer | QA | CM |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Définition des besoins** | A | C | C | C | I | I |
+| **Rédaction du cahier des charges** | R | C | C | C | I | I |
+| **Conception des maquettes (UI/UX)** | A | I | I | R | I | C |
+| **Validation des maquettes** | A | I | I | R | I | I |
+| **Développement du backend** | I | R | I | I | C | I |
+| **Développement du frontend** | I | R | I | I | C | I |
+| **Rédaction des CGU et contrats** | A | I | R | I | I | I |
+| **Déclaration ANTIC** | A | I | R | I | I | I |
+| **Tests unitaires et d'intégration** | I | R | I | I | R | I |
+| **Tests d'acceptation utilisateur (UAT)** | A | I | I | I | R | I |
+| **Déploiement en production** | A | R | I | I | I | I |
+| **Campagne marketing et acquisition** | A | I | I | C | I | R |
+| **Support client** | R | I | I | I | I | R |
+| **Gestion des litiges (médiation)** | A | I | R | I | I | I |
+
+---
+
+## 4. PROCÉDURE DE VALIDATION DES LIVRABLES
+
+1. Le MOE livre un livrable (ex: maquettes, code, document) au Chef de Projet.
+2. Le Chef de Projet le transmet au MOA pour validation.
+3. Le MOA valide ou demande des modifications.
+4. Si des modifications sont demandées, elles sont transmises au MOE.
+5. Le cycle continue jusqu'à validation finale.
+
+---
+
+## 5. GESTION DES RISQUES ET ESCALADE
+
+- **Risque identifié** : Un membre de l'équipe identifie un risque (ex: retard, problème technique).
+- **Escalade** : Il informe le Chef de Projet.
+- **Niveau 1 (Mineur)** : Le Chef de Projet résout directement.
+- **Niveau 2 (Majeur)** : Le Chef de Projet alerte le Comité de Pilotage.
+- **Niveau 3 (Critique)** : Le Comité de Pilotage prend une décision stratégique.
+
+---
+
+## 6. PLAN DE RÉUNIONS
+
+| Type | Fréquence | Participants | Ordre du jour |
+| :--- | :--- | :--- | :--- |
+| **Point d'avancement technique** | Hebdomadaire | Chef de projet, Lead Dev | Avancement, blocages, prochaines étapes |
+| **Comité de pilotage** | Mensuel | MOA, Investisseurs | Budget, planning, stratégie |
+| **Réunion de bilan** | Trimestriel | Toute l'équipe | Bilan des KPI, ajustements |
+
+---
+
+## 7. LIVRABLES ATTENDUS
+
+1. **Matrice RACI** (ce document).
+2. **Organigramme détaillé** avec les noms des personnes.
+3. **Procédure de gestion des modifications** (ex: formulaire de demande de modification).
+4. **Comptes-rendus des réunions de pilotage**.
+```
+
+---
+
+## 💎 RÉCAPITULATIF DES LIVRABLES
+
+| # | Livrable | Destinataire principal |
+| :--- | :--- | :--- |
+| 1 | SPECS_UX_UI_ZEN_LIGHT.md | Designer, Dev Frontend |
+| 2 | SPECS_TECHNIQUES_ARCHITECTURE_ZEN_LIGHT.md | Lead Dev, DevOps |
+| 3 | LEGAL_COMPLIANCE_ZEN_LIGHT.md | Juriste, ANTIC |
+| 4 | PLAN_TEST_QA_ZEN_LIGHT.md | Équipe QA |
+| 5 | PLAN_MARKETING_GO_TO_MARKET_ZEN_LIGHT.md | Community Manager |
+| 6 | BUSINESS_PLAN_ZEN_LIGHT.md | Investisseurs |
+| 7 | RACI_GOUVERNANCE_ZEN_LIGHT.md | Toute l'équipe |
+
+---
+
+**Ces 7 livrables complètent le cahier des charges principal** et vous donnent une base solide pour lancer le développement, recruter les équipes, convaincre les investisseurs et assurer le succès de votre projet.
+
+# 🔍 Logique et Questionnement : La Méthode pour TONTINE ZEN
+
+Le principe de logique et le questionnement stratégique sont **les deux faces d'une même pièce** : le questionnement pose les bonnes questions, la logique y apporte des réponses rationnelles basées sur des faits.
+
+Voici comment cette méthode s'applique concrètement à votre projet **« TONTINE ZEN LIGHT »**.
+
+---
+
+## 🧠 La Boucle Vertueuse : Questionner → Logiquer → Décider
+
+```
+[QUESTIONNER]
+    │
+    ├── "Est-ce vraiment nécessaire ?"
+    ├── "À quel prix ?"
+    ├── "Quels sont les risques ?"
+    ├── "Que disent les faits ?"
+    │
+    ▼
+[LOGIQUER] (Analyser avec les 4 piliers)
+    │
+    ├── Objectivité (faits, données, lois)
+    ├── Coût/Bénéfice (est-ce rentable ?)
+    ├── Réduction des risques (est-ce maîtrisable ?)
+    ├── Adaptabilité (peut-on itérer ?)
+    │
+    ▼
+[DÉCIDER]
+    │
+    ├── Faire / Ne pas faire
+    ├── Maintenant / Plus tard
+    ├── Comment (simplifié ou complexe)
+```
+
+---
+
+## 📌 Application concrète : Les 5 grandes questions clés du projet
+
+### Question 1 : Le séquestre bancaire est-il indispensable dès la V1 ?
+
+| Étape | Analyse |
+| :--- | :--- |
+| **Questionnement** | "Est-ce que je peux lancer sans séquestre ? Les utilisateurs vont-ils me faire confiance ?" |
+| **Logique (Objectivité)** | Les études BEAC (2023) montrent que les utilisateurs sont prêts à payer max 0,8% de frais. Le séquestre coûte 1,5%. Donc économiquement non viable. |
+| **Logique (Coût/Bénéfice)** | Séquestre en V1 = 40M FCFA de dev + 12 mois de délai + risque COBAC. Bénéfice = sécurité des fonds. Mais 80% des tontines sont < 500 000 FCFA. Le coût est supérieur au bénéfice. |
+| **Logique (Risque)** | Risque réglementaire (agrément 500M capital) = très élevé. Risque de rejet utilisateur (prix trop élevé) = élevé. |
+| **Logique (Adaptabilité)** | On peut ajouter le séquestre en V3, une fois la base utilisateurs prouvée. |
+| **Décision logique** | **REPORTER le séquestre à la V3.** |
+
+---
+
+### Question 2 : Faut-il cibler tout le Cameroun ou seulement les grandes villes ?
+
+| Étape | Analyse |
+| :--- | :--- |
+| **Questionnement** | "Pourquoi se limiter aux villes ? Les ruraux ont aussi besoin de tontines." |
+| **Logique (Objectivité)** | 85% des utilisateurs de Mobile Money sont en zone urbaine (ANTIC, 2024). Les ruraux utilisent le Mobile Money pour recevoir, pas pour des opérations complexes. |
+| **Logique (Coût/Bénéfice)** | Cibler les ruraux en V1 = coût marketing élevé (radio locale, agents) pour un taux d'adoption faible. Cibler les urbains = coût maîtrisé (influenceurs, bouche-à-oreille) pour un taux d'adoption élevé. |
+| **Logique (Risque)** | Lancer en zone rurale sans infrastructure numérique = risque d'échec élevé. |
+| **Logique (Adaptabilité)** | On peut étendre aux zones rurales en V2/V3, via les agents de proximité. |
+| **Décision logique** | **SE LIMITER à Douala, Yaoundé, Bafoussam en V1.** |
+
+---
+
+### Question 3 : Faut-il monétiser par frais de transaction ou par abonnement ?
+
+| Étape | Analyse |
+| :--- | :--- |
+| **Questionnement** | "Les frais de transaction sont-ils acceptables ?" |
+| **Logique (Objectivité)** | Une étude de la BEAC (2023) montre que les Camerounais comparent le coût de la tontine digitale à la tontine informelle (gratuite). Tout frais perçu est perçu comme une perte. |
+| **Logique (Coût/Bénéfice)** | Frais de transaction = 1% sur 500 000 FCFA = 5 000 FCFA. L'utilisateur voit ça comme "perte". Abonnement = 2 000 FCFA/mois = "service rendu". Perception différente. |
+| **Logique (Risque)** | Frais de transaction = risque de rejet massif. Abonnement = risque plus faible (l'utilisateur paie pour un service, pas pour une transaction). |
+| **Logique (Adaptabilité)** | On peut commencer par le freemium (gratuit + premium), et ajouter des frais de transaction plus tard pour les fonctionnalités avancées. |
+| **Décision logique** | **ADOPTER le modèle Freemium** (gratuit + abonnement Premium). |
+
+---
+
+### Question 4 : Faut-il demander un agrément COBAC dès le départ ?
+
+| Étape | Analyse |
+| :--- | :--- |
+| **Questionnement** | "Ne vaut-il pas mieux être en règle dès le départ ?" |
+| **Logique (Objectivité)** | Le capital minimum pour un "Établissement de Monnaie Électronique" est de 500M FCFA (COBAC 2024/01). Vous n'avez pas ce capital. |
+| **Logique (Coût/Bénéfice)** | Demander l'agrément en V1 = 18 mois de procédures + coûts juridiques élevés + immobilisation de fonds. Bénéfice = conformité. Mais vous n'avez pas encore de revenus. |
+| **Logique (Risque)** | Risque de refus = très élevé. Risque de retard = très élevé. |
+| **Logique (Adaptabilité)** | Passer par une banque partenaire (qui a déjà l'agrément) en V2, puis demander l'agrément en V3. |
+| **Décision logique** | **NE PAS DEMANDER l'agrément en V1.** Passer par un partenaire bancaire en V2, et demander l'agrément en V3. |
+
+---
+
+### Question 5 : Faut-il intégrer l'assurance dès la V1 ?
+
+| Étape | Analyse |
+| :--- | :--- |
+| **Questionnement** | "L'assurance est une fonctionnalité clé. Pourquoi ne pas la lancer ?" |
+| **Logique (Objectivité)** | L'assurance nécessite des données pour calculer la sinistralité. Sans données, les primes seront mal calibrées (trop chères ou insuffisantes). |
+| **Logique (Coût/Bénéfice)** | Intégrer l'assurance en V1 = coût de développement + négociation avec un assureur + risque de mauvais pricing. Bénéfice = fonctionnalité attractive. |
+| **Logique (Risque)** | Risque de sinistres non couverts (si primes trop basses) = risque de réputation. |
+| **Logique (Adaptabilité)** | Lancer l'assurance en V1.5, une fois que vous avez des données sur le comportement des utilisateurs (taux de retard, litiges). |
+| **Décision logique** | **REPORTER l'assurance à la V1.5** (6 mois après le lancement). |
+
+---
+
+## 📊 SYNTHÈSE : Les 5 grandes décisions logiques
+
+| # | Question | Décision logique | Justification |
+| :--- | :--- | :--- | :--- |
+| 1 | Séquestre en V1 ? | **NON** (reporté à V3) | Coût > bénéfice, risque COBAC, utilisateurs pas prêts |
+| 2 | Cibler tout le Cameroun ? | **NON** (seulement Douala/Yaoundé/Bafoussam) | Adoption faible en zone rurale en V1 |
+| 3 | Frais de transaction ? | **NON** (modèle Freemium) | Frais perçus comme une perte, abonnement perçu comme un service |
+| 4 | Agrément COBAC en V1 ? | **NON** (partenariat bancaire en V2) | Capital 500M FCFA impossible en V1 |
+| 5 | Assurance en V1 ? | **NON** (reportée à V1.5) | Pas de données pour calibrer les primes |
+
+---
+
+## 💎 LA RÈGLE D'OR
+
+> **En logique de projet, "FAIRE" n'est pas toujours la bonne réponse.**
+> 
+> La vraie question n'est pas "peut-on le faire ?", mais **"faut-il le faire maintenant, et à quel prix ?"**
+
+**Ce que la logique t'a appris pour TONTINE ZEN** :
+
+- Le séquestre est une bonne idée, mais **au mauvais moment**.
+- L'assurance est une bonne idée, mais **au mauvais moment**.
+- L'agrément COBAC est une bonne idée, mais **au mauvais moment**.
+- Les zones rurales sont un bon marché, mais **au mauvais moment**.
+
+**La logique ne dit pas "renonce". Elle dit "attends le bon moment".**
+
+> **Et le bon moment, c'est quand tu as prouvé que les utilisateurs veulent ton service de base (V1), que tu as des données (V1.5), que tu as une base d'utilisateurs solide (V2), et que tu as les moyens (V3).**
+
+---
+
+**Cette méthode de questionnement logique est désormais votre boussole** pour chaque décision future. Applique-la à chaque nouvelle fonctionnalité, chaque nouveau marché, chaque nouveau partenariat.
+
+# 📂 TYPES DE CDC POUR « TONTINE ZEN LIGHT » – LIVRABLES .MD
+
+Voici les **4 livrables complémentaires** au format Markdown (`.md`) correspondant aux **types de cahiers des charges fonctionnels** identifiés pour le projet.
+
+---
+
+# 📄 LIVRABLE 1 : CDC_FONCTIONNEL_GLOBAL_ZEN_LIGHT.md
+
+```markdown
+# Cahier des Charges Fonctionnel Global – TONTINE ZEN LIGHT
+
+**Version :** 1.0  
+**Date :** 19 Juin 2026  
+**Auteur :** [Votre Nom]  
+**Statut :** Document de cadrage – Niveau Macro  
+**Destinataire :** Direction, Investisseurs, Comité de Pilotage
+
+---
+
+## 1. CONTEXTE ET PROBLÉMATIQUE
+
+Au Cameroun, la tontine est un pilier de l'économie informelle, impliquant environ 50% de la population. Cependant, ce système d'entraide souffre de fragilités structurelles :
+
+- **Manque de transparence** : Les comptes sont tenus manuellement, sans visibilité pour tous.
+- **Risque d'impayés** : Un membre peut cesser de payer sans conséquence grave.
+- **Absence de cadre juridique** : En cas de litige, les recours sont quasi inexistants.
+- **Méfiance numérique** : Les solutions existantes (Djangui, yaNkap) n'apportent pas de garantie suffisante contre les défauts de paiement.
+
+---
+
+## 2. OBJECTIFS DU PROJET
+
+### 2.1. Objectif Principal
+Développer une **application mobile** qui transforme la tontine traditionnelle en un espace de **transparence et de confiance**, sans manipuler les fonds des utilisateurs.
+
+### 2.2. Objectifs Spécifiques
+| # | Objectif | Indicateur de succès |
+| :--- | :--- | :--- |
+| 1 | Offrir une transparence totale | Historique des paiements consultable par tous |
+| 2 | Créer un mécanisme de confiance | Score de réputation public (0-100) |
+| 3 | Fournir un cadre juridique clair | Contrat OHADA signé électroniquement |
+| 4 | Résoudre les litiges à l'amiable | Médiation intégrée avec des médiateurs agréés |
+| 5 | Être accessible à tous | Interface multilingue (français, anglais, langues locales) |
+
+---
+
+## 3. PÉRIMÈTRE FONCTIONNEL
+
+### 3.1. Ce qui est INCLUS (V1)
+
+| Module | Description |
+| :--- | :--- |
+| Gestion de tontine | Création, cotisations, tirages, pénalités, historique |
+| Score de réputation | Calcul automatique (0-100), affichage public |
+| Contrat OHADA | Génération automatique, signature électronique, export PDF |
+| Médiation | Signalement de litige, mise en relation avec médiateur, espace de discussion |
+| Freemium | Version gratuite (base) + Premium (2 000 FCFA/mois) |
+| Multilingue | Français, anglais, bamiléké, douala, fulfulde |
+
+### 3.2. Ce qui est EXCLU (V1)
+
+| Fonctionnalité | Raison | Reportée à |
+| :--- | :--- | :--- |
+| Séquestre bancaire | Coût élevé, risque réglementaire | V3 |
+| Micro-assurance | Pas de données pour calibrer les primes | V1.5 |
+| Agents de proximité | Adoption en zone rurale nécessite une phase pilote | V2 |
+| Cryptomonnaies | Pas de demande immédiate | V3 |
+
+---
+
+## 4. PUBLIC CIBLE
+
+### 4.1. Marché Prioritaire (V1)
+- **Zone géographique** : Douala, Yaoundé, Bafoussam (urbains connectés).
+- **Segments** :
+    - Femmes commerçantes (35-55 ans) – gestionnaires de tontines de quartier.
+    - Jeunes cadres (25-40 ans) – technophiles, recherchent transparence et sécurité.
+    - Membres de la diaspora – Camerounais à l'étranger voulant participer à des tontines familiales.
+
+### 4.2. Personas
+
+| Persona | Description | Besoin spécifique |
+| :--- | :--- | :--- |
+| **Ngo, 42 ans** | Commerçante à Douala, gère une tontine de 15 femmes | Gagner du temps, éviter les conflits |
+| **Jean, 29 ans** | Cadre à Yaoundé, fait partie d'une tontine d'anciens camarades | Transparence, preuve en cas de litige |
+| **Marie, 50 ans** | Diaspora en France, veut participer à la tontine familiale | Suivre ses paiements à distance |
+
+---
+
+## 5. CONTRAINTES
+
+| Type | Contrainte | Détail |
+| :--- | :--- | :--- |
+| **Budgétaire** | Coût de développement | 15 000 000 FCFA (MVP) |
+| **Délais** | Lancement | 6 mois (MVP) |
+| **Juridique** | Conformité | Déclaration ANTIC, contrat OHADA |
+| **Technique** | Plateformes | iOS et Android (Flutter) |
+| **Réglementaire** | Aucun agrément COBAC | L'application ne manipule pas de fonds |
+
+---
+
+## 6. INDICATEURS DE SUCCÈS (KPI)
+
+| KPI | Cible (12 mois) |
+| :--- | :--- |
+| Téléchargements | 50 000 |
+| Utilisateurs actifs mensuels | 20 000 |
+| Tontines créées | 5 000 |
+| Taux de conversion Premium | 10% (2 000 abonnés) |
+| Taux de rétention (3 mois) | > 40% |
+| Taux de litige | < 2% |
+| Score de satisfaction (in-app) | > 4,5/5 |
+
+---
+
+## 7. GLOSSAIRE
+
+| Terme | Définition |
+| :--- | :--- |
+| **Tontine** | Système d'épargne collective rotative |
+| **Score de réputation** | Note publique (0-100) basée sur l'historique de paiement |
+| **OHADA** | Organisation pour l'Harmonisation en Afrique du Droit des Affaires |
+| **Médiation** | Résolution de conflit à l'amiable via un tiers impartial |
+| **MVP** | Minimum Viable Product – Version minimale fonctionnelle |
+
+---
+
+## 8. ANNEXES
+
+- **Annexe A** : Étude de marché (BEAC, 2023)
+- **Annexe B** : Benchmark concurrentiel (Djangui, yaNkap, Orange)
+- **Annexe C** : Matrice RACI
+```
+
+---
+
+# 📄 LIVRABLE 2 : CDC_API_SPECS_ZEN_LIGHT.md
+
+```markdown
+# Cahier des Charges Spécifications Techniques (API) – TONTINE ZEN LIGHT
+
+**Version :** 1.0  
+**Date :** 19 Juin 2026  
+**Auteur :** [Votre Nom]  
+**Destinataire :** Développeurs Backend, Intégrateurs, Partenaires Techniques
+
+---
+
+## 1. CONTEXTE ET OBJECTIFS
+
+Ce document décrit les **spécifications des API** de l'application « TONTINE ZEN LIGHT ». Les API sont le point d'entrée pour toutes les interactions entre l'application mobile (frontend) et le serveur (backend).
+
+**Objectifs** :
+- Permettre aux développeurs backend de comprendre et d'implémenter les endpoints.
+- Permettre aux développeurs frontend de savoir quelles API appeler.
+- Servir de référence pour les tests d'intégration.
+
+---
+
+## 2. AUTHENTIFICATION
+
+| Méthode | Détail |
+| :--- | :--- |
+| **Protocole** | JWT (JSON Web Tokens) |
+| **Durée** | Token d'accès : 15 minutes – Refresh Token : 7 jours |
+| **Header** | `Authorization: Bearer <token>` |
+| **Endpoints publics** | `/auth/login`, `/auth/register` |
+
+### 2.1. Flow d'authentification
+
+1. L'utilisateur s'inscrit / se connecte.
+2. Le backend génère un JWT et un Refresh Token.
+3. L'application stocke le JWT localement.
+4. Pour chaque requête protégée, l'application envoie le JWT.
+5. Si le JWT expire, l'application utilise le Refresh Token pour en obtenir un nouveau.
+
+---
+
+## 3. ENDPOINTS DE L'API
+
+### 3.1. Endpoints d'Authentification
+
+| Endpoint | Méthode | Description | Body / Paramètres |
+| :--- | :--- | :--- | :--- |
+| `/api/auth/register` | POST | Inscription d'un nouvel utilisateur | `{ phone, first_name, last_name }` |
+| `/api/auth/verify` | POST | Validation du code SMS | `{ phone, code }` |
+| `/api/auth/login` | POST | Connexion | `{ phone }` |
+| `/api/auth/refresh` | POST | Renouvellement du JWT | `{ refresh_token }` |
+| `/api/auth/logout` | POST | Déconnexion | `{ refresh_token }` |
+
+### 3.2. Endpoints Utilisateurs
+
+| Endpoint | Méthode | Description | Body / Paramètres |
+| :--- | :--- | :--- | :--- |
+| `/api/users/me` | GET | Récupérer le profil de l'utilisateur connecté | — |
+| `/api/users/me` | PUT | Mettre à jour le profil | `{ first_name, last_name, photo_url }` |
+| `/api/users/me/reputation` | GET | Récupérer le score de réputation | — |
+| `/api/users/me/tontines` | GET | Liste des tontines de l'utilisateur | — |
+
+### 3.3. Endpoints Tontines
+
+| Endpoint | Méthode | Description | Body / Paramètres |
+| :--- | :--- | :--- | :--- |
+| `/api/tontines` | POST | Créer une nouvelle tontine | `{ name, amount, frequency, members, type }` |
+| `/api/tontines` | GET | Liste des tontines (filtres possibles) | `?status=active&limit=10` |
+| `/api/tontines/:id` | GET | Détails d'une tontine | — |
+| `/api/tontines/:id` | PUT | Mettre à jour une tontine | `{ name, amount, ... }` |
+| `/api/tontines/:id/invite` | POST | Générer un lien d'invitation | — |
+| `/api/tontines/:id/join` | POST | Rejoindre une tontine via lien | `{ invite_token }` |
+| `/api/tontines/:id/members` | GET | Liste des membres avec leurs scores | — |
+| `/api/tontines/:id/transactions` | GET | Historique des paiements | — |
+| `/api/tontines/:id/contract` | GET | Télécharger le contrat en PDF | — |
+
+### 3.4. Endpoints Paiements
+
+| Endpoint | Méthode | Description | Body / Paramètres |
+| :--- | :--- | :--- | :--- |
+| `/api/payments/confirm` | POST | Confirmer un paiement (trésorier) | `{ tontine_id, member_id, amount }` |
+| `/api/payments/late` | POST | Signaler un retard | `{ tontine_id, member_id }` |
+| `/api/payments/tontine/:id` | GET | Liste des paiements d'une tontine | — |
+
+### 3.5. Endpoints Litiges (Médiation)
+
+| Endpoint | Méthode | Description | Body / Paramètres |
+| :--- | :--- | :--- | :--- |
+| `/api/disputes` | POST | Créer un litige | `{ tontine_id, defendant_id, description, type }` |
+| `/api/disputes` | GET | Liste des litiges | — |
+| `/api/disputes/:id` | GET | Détails d'un litige | — |
+| `/api/disputes/:id/mediator` | POST | Choisir un médiateur | `{ mediator_id }` |
+| `/api/disputes/:id/resolve` | POST | Résoudre un litige | `{ resolution }` |
+| `/api/mediators` | GET | Liste des médiateurs disponibles | — |
+
+### 3.6. Endpoints Notifications
+
+| Endpoint | Méthode | Description | Body / Paramètres |
+| :--- | :--- | :--- | :--- |
+| `/api/notifications` | GET | Liste des notifications de l'utilisateur | — |
+| `/api/notifications/:id/read` | POST | Marquer une notification comme lue | — |
+
+---
+
+## 4. MODÈLES DE DONNÉES (SCHÉMAS)
+
+### 4.1. Utilisateur (User)
+
+```json
+{
+  "id": "uuid",
+  "phone": "+237 6XX XX XX XX",
+  "first_name": "Jean",
+  "last_name": "Dupont",
+  "photo_url": "https://...",
+  "reputation_score": 85,
+  "is_premium": false,
+  "created_at": "2026-06-19T10:00:00Z"
+}
+```
+
+### 4.2. Tontine (Tontine)
+
+```json
+{
+  "id": "uuid",
+  "name": "Tontine des sœurs",
+  "amount": 10000,
+  "frequency": "monthly",
+  "type": "mutual",
+  "status": "active",
+  "members": 10,
+  "contract_url": "https://...",
+  "created_at": "2026-06-19T10:00:00Z"
+}
+```
+
+### 4.3. Transaction (Transaction)
+
+```json
+{
+  "id": "uuid",
+  "tontine_id": "uuid",
+  "user_id": "uuid",
+  "type": "cotisation",
+  "amount": 10000,
+  "status": "confirmed",
+  "confirmed_at": "2026-06-19T10:00:00Z"
+}
+```
+
+### 4.4. Litige (Dispute)
+
+```json
+{
+  "id": "uuid",
+  "tontine_id": "uuid",
+  "reporter_id": "uuid",
+  "defendant_id": "uuid",
+  "mediator_id": "uuid",
+  "type": "non_payment",
+  "description": "...",
+  "status": "mediating",
+  "resolution": "",
+  "created_at": "2026-06-19T10:00:00Z"
+}
+```
+
+---
+
+## 5. SÉCURITÉ
+
+| Couche | Mesure |
+| :--- | :--- |
+| **Authentification** | JWT avec expiration courte |
+| **Chiffrement** | HTTPS obligatoire (TLS 1.3) |
+| **Rate Limiting** | 100 requêtes/minute par IP |
+| **Validation** | Zod (validation stricte des entrées) |
+| **CORS** | Uniquement les domaines autorisés |
+| **Logs** | Audit des accès (qui, quand, quelle action) |
+
+---
+
+## 6. CODES D'ERREUR
+
+| Code | Message | Description |
+| :--- | :--- | :--- |
+| 200 | OK | Requête réussie |
+| 201 | Created | Ressource créée |
+| 400 | Bad Request | Paramètre manquant ou invalide |
+| 401 | Unauthorized | Authentification manquante |
+| 403 | Forbidden | L'utilisateur n'a pas les droits |
+| 404 | Not Found | Ressource non trouvée |
+| 429 | Too Many Requests | Trop de requêtes (rate limiting) |
+| 500 | Internal Server Error | Erreur serveur |
+
+---
+
+## 7. VERSIONING
+
+- **Version actuelle** : `v1`
+- **URL de base** : `https://api.tontinezen.com/v1`
+- **Stratégie** : Les nouvelles versions seront annoncées 6 mois à l'avance.
+
+---
+
+## 8. ANNEXES
+
+- **Annexe A** : Exemple de requête complète (cURL)
+- **Annexe B** : Collection Postman pour les tests
+- **Annexe C** : Swagger/OpenAPI (fichier .yaml)
+```
+
+---
+
+# 📄 LIVRABLE 3 : CDC_INTEGRATION_ZEN_LIGHT.md
+
+```markdown
+# Cahier des Charges d'Intégration – TONTINE ZEN LIGHT
+
+**Version :** 1.0  
+**Date :** 19 Juin 2026  
+**Auteur :** [Votre Nom]  
+**Destinataire :** Développeurs, Intégrateurs, Partenaires Techniques
+
+---
+
+## 1. CONTEXTE ET OBJECTIFS
+
+Ce document décrit les **intégrations externes** nécessaires au fonctionnement de l'application. L'application « TONTINE ZEN LIGHT » s'appuie sur plusieurs services tiers pour fonctionner.
+
+**Objectifs** :
+- Identifier tous les systèmes externes à intégrer.
+- Définir les responsabilités de chaque partie.
+- Décrire les flux d'échange et les protocoles.
+
+---
+
+## 2. LISTE DES INTÉGRATIONS EXTERNES
+
+| # | Service | Fournisseur | Objectif |
+| :--- | :--- | :--- | :--- |
+| 1 | Signature électronique | YouSign | Signature des contrats de tontine |
+| 2 | Notifications SMS | Twilio | Envoi des codes de validation et rappels |
+| 3 | Notifications Push | Firebase Cloud Messaging (FCM) | Envoi des notifications in-app |
+| 4 | Stockage de fichiers | AWS S3 / OVH | Stockage des contrats PDF et photos de profil |
+| 5 | Analyse et suivi | Google Analytics / Firebase Analytics | Suivi des utilisateurs et comportements |
+
+---
+
+## 3. INTÉGRATION DETAILÉE : YOUSIGN (Signature Électronique)
+
+### 3.1. Objectif
+Permettre aux membres de signer électroniquement le contrat de tontine généré par l'application.
+
+### 3.2. Protocole
+- **Type** : REST API (synchrone)
+- **Authentification** : API Key (avec secret)
+- **URL de base** : `https://api.yousign.com/v3`
+
+### 3.3. Flux de Données
+
+1. L'application génère un contrat en PDF.
+2. L'application envoie une requête POST à l'API YouSign pour créer une demande de signature.
+3. YouSign renvoie un lien de signature.
+4. L'application envoie le lien à chaque membre (via notification/SMS).
+5. Le membre clique sur le lien, signe sur l'interface YouSign.
+6. YouSign envoie un webhook (ou l'application interroge régulièrement le statut).
+7. Lorsque tous les membres ont signé, l'application met à jour le statut de la tontine.
+
+### 3.4. Exemple de Requête
+
+```json
+POST /api/v3/signature_requests
+Headers: { "Authorization": "Bearer <API_KEY>" }
+Body: {
+  "name": "Contrat Tontine des sœurs",
+  "documents": [
+    {
+      "document_id": "123",
+      "file": "base64_encoded_pdf"
+    }
+  ],
+  "signers": [
+    { "email": "ngo@example.com", "name": "Ngo" }
+  ]
+}
+```
+
+### 3.5. Responsabilités
+| Partie | Responsabilité |
+| :--- | :--- |
+| **TONTINE ZEN LIGHT** | Générer le contrat PDF, gérer la logique de signature |
+| **YouSign** | Fournir l'interface de signature, gérer l'archivage, notifier le statut |
+
+---
+
+## 4. INTÉGRATION DÉTAILLÉE : TWILIO (SMS)
+
+### 4.1. Objectif
+Envoyer des SMS aux utilisateurs pour la validation du compte et les rappels de paiement.
+
+### 4.2. Protocole
+- **Type** : REST API (asynchrone)
+- **Authentification** : Account SID + Auth Token
+- **URL de base** : `https://api.twilio.com/2010-04-01`
+
+### 4.3. Flux de Données
+
+1. L'application envoie une requête POST à Twilio pour envoyer un SMS.
+2. Twilio traite la demande et envoie le SMS.
+3. Twilio retourne un statut (que l'application peut interroger via webhook).
+
+### 4.4. Exemple de Requête
+
+```json
+POST /Accounts/{AccountSid}/Messages.json
+Headers: { "Authorization": "Basic <base64>" }
+Body: {
+  "To": "+2376XXXXXXXX",
+  "From": "+1234567890",
+  "Body": "Votre code de validation TONTINE ZEN est : 123456"
+}
+```
+
+### 4.5. Responsabilités
+| Partie | Responsabilité |
+| :--- | :--- |
+| **TONTINE ZEN LIGHT** | Générer le code, déclencher l'envoi |
+| **Twilio** | Livrer le SMS, gérer les éventuels échecs de livraison |
+
+---
+
+## 5. INTÉGRATION DÉTAILLÉE : FIREBASE FCM (Notifications Push)
+
+### 5.1. Objectif
+Envoyer des notifications push aux utilisateurs sur leur mobile.
+
+### 5.2. Protocole
+- **Type** : REST API (asynchrone)
+- **Authentification** : Service Account (JSON Key)
+- **URL de base** : `https://fcm.googleapis.com/v1`
+
+### 5.3. Flux de Données
+
+1. L'application backend envoie une requête POST à FCM avec le token du destinataire.
+2. FCM transmet la notification à l'appareil de l'utilisateur (iOS/Android).
+
+### 5.4. Exemple de Requête
+
+```json
+POST /v1/projects/{projectId}/messages:send
+Headers: { "Authorization": "Bearer <JWT>" }
+Body: {
+  "message": {
+    "token": "device_token",
+    "notification": {
+      "title": "Paiement dû",
+      "body": "Votre cotisation de 10 000 FCFA est due dans 24h."
+    },
+    "android": { "priority": "high" },
+    "apns": { "headers": { "apns-priority": "10" } }
+  }
+}
+```
+
+### 5.5. Responsabilités
+| Partie | Responsabilité |
+| :--- | :--- |
+| **TONTINE ZEN LIGHT** | Déclencher les notifications, gérer les tokens des utilisateurs |
+| **Firebase FCM** | Transmettre les notifications aux appareils |
+
+---
+
+## 6. INTÉGRATION DÉTAILLÉE : AWS S3 / OVH (Stockage de Fichiers)
+
+### 6.1. Objectif
+Stocker les contrats de tontine (PDF) et les photos de profil des utilisateurs.
+
+### 6.2. Protocole
+- **Type** : REST API / SDK
+- **Authentification** : Access Key + Secret Key
+
+### 6.3. Flux de Données
+
+1. L'application génère un contrat PDF.
+2. L'application backend téléverse le fichier vers S3.
+3. S3 renvoie une URL publique ou signée.
+4. L'application stocke l'URL dans la base de données.
+
+### 6.4. Responsabilités
+| Partie | Responsabilité |
+| :--- | :--- |
+| **TONTINE ZEN LIGHT** | Générer les fichiers, gérer l'upload et les URLs |
+| **AWS S3 / OVH** | Stocker les fichiers, assurer la disponibilité |
+
+---
+
+## 7. TESTS D'INTÉGRATION
+
+| Cas de test | Scénario | Résultat attendu |
+| :--- | :--- | :--- |
+| TC-INT-01 | Envoyer un SMS via Twilio | Le SMS est reçu dans les 10 secondes |
+| TC-INT-02 | Créer une demande de signature YouSign | Un lien de signature est renvoyé |
+| TC-INT-03 | Envoyer une notification push FCM | La notification s'affiche sur l'appareil |
+| TC-INT-04 | Téléverser un PDF sur S3 | Le fichier est accessible via une URL |
+
+---
+
+## 8. ANNEXES
+
+- **Annexe A** : Documentation complète YouSign
+- **Annexe B** : Documentation complète Twilio
+- **Annexe C** : Documentation complète Firebase FCM
+- **Annexe D** : Exemple de webhook YouSign
+```
+
+---
+
+# 📄 LIVRABLE 4 : CDC_RECETTE_ZEN_LIGHT.md
+
+```markdown
+# Cahier des Charges de Recette (Plan de Test Fonctionnel) – TONTINE ZEN LIGHT
+
+**Version :** 1.0  
+**Date :** 19 Juin 2026  
+**Auteur :** [Votre Nom]  
+**Destinataire :** Équipe QA, MOA (pour la recette), Testeurs
+
+---
+
+## 1. OBJECTIFS DE LA RECETTE
+
+La recette a pour objectif de **valider que l'application fonctionne conformément aux spécifications** avant la mise en production.
+
+**Critères de succès** :
+- Tous les cas de tests critiques (P0) sont passés.
+- Taux de couverture des cas de tests > 95%.
+- Aucun bug bloquant (P0) n'est identifié.
+
+---
+
+## 2. CAS DE TESTS
+
+### 2.1. Module Authentification
+
+| ID | Description | Étapes | Résultat attendu |
+| :--- | :--- | :--- | :--- |
+| **AUTH-01** | Inscription avec numéro valide | 1. Saisir un numéro valide<br>2. Attendre le SMS | Code SMS reçu dans les 10s |
+| **AUTH-02** | Inscription avec numéro invalide | 1. Saisir un numéro invalide | Message d'erreur "Numéro invalide" |
+| **AUTH-03** | Connexion | 1. Saisir numéro existant<br>2. Saisir le code SMS | Connexion réussie, JWT généré |
+| **AUTH-04** | Refresh Token | 1. Après 15 min, tenter une requête protégée | Nouveau JWT généré automatiquement |
+
+### 2.2. Module Tontine
+
+| ID | Description | Étapes | Résultat attendu |
+| :--- | :--- | :--- | :--- |
+| **TONT-01** | Créer une tontine | 1. Remplir tous les champs<br>2. Cliquer sur "Créer" | Tontine créée, lien d'invitation généré |
+| **TONT-02** | Créer avec < 3 membres | 1. Saisir 2 membres | Message d'erreur "Minimum 3 membres" |
+| **TONT-03** | Inviter un membre | 1. Partager le lien via WhatsApp | Lien fonctionnel, page d'inscription s'ouvre |
+| **TONT-04** | Rejoindre une tontine | 1. Cliquer sur le lien<br>2. S'inscrire | Le membre est ajouté à la tontine |
+| **TONT-05** | Visualiser les membres | 1. Ouvrir la tontine<br>2. Section "Membres" | Liste des membres avec leurs scores affichés |
+
+### 2.3. Module Paiement
+
+| ID | Description | Étapes | Résultat attendu |
+| :--- | :--- | :--- | :--- |
+| **PAY-01** | Confirmer un paiement (trésorier) | 1. Ouvrir la tontine<br>2. Cliquer sur "Confirmer paiement"<br>3. Sélectionner le membre | Statut du membre passe à "Payé" |
+| **PAY-02** | Un membre non-trésorier tente de confirmer | 1. Membre ordinaire tente de confirmer | Message d'erreur "Non autorisé" |
+| **PAY-03** | Voir l'historique | 1. Section "Historique" | Liste des paiements avec dates et montants |
+| **PAY-04** | Signalement d'un retard | 1. Cliquer sur "Signalé un retard"<br>2. Sélectionner le membre | Retard enregistré, score du membre diminué |
+
+### 2.4. Module Score de Réputation
+
+| ID | Description | Étapes | Résultat attendu |
+| :--- | :--- | :--- | :--- |
+| **REP-01** | Voir son score | 1. Ouvrir le profil | Score affiché (0-100) |
+| **REP-02** | Voir le score d'un autre membre | 1. Ouvrir la tontine<br>2. Cliquer sur un membre | Score visible |
+| **REP-03** | Augmentation du score | 1. Confirmer 5 paiements consécutifs | Score augmente progressivement |
+| **REP-04** | Diminution du score | 1. Avoir 1 retard | Score diminue |
+
+### 2.5. Module Contrat OHADA
+
+| ID | Description | Étapes | Résultat attendu |
+| :--- | :--- | :--- | :--- |
+| **CON-01** | Génération du contrat | 1. Créer une tontine<br>2. Tous les membres ont rejoint | Contrat généré automatiquement |
+| **CON-02** | Signature électronique | 1. Cliquer sur "Signer"<br>2. Suivre le processus YouSign | Contrat signé, statut "Signé" |
+| **CON-03** | Export PDF | 1. Cliquer sur "Exporter PDF" | Le contrat s'affiche ou se télécharge |
+
+### 2.6. Module Médiation
+
+| ID | Description | Étapes | Résultat attendu |
+| :--- | :--- | :--- | :--- |
+| **MED-01** | Signaler un litige | 1. Ouvrir une tontine<br>2. Cliquer sur "Signaler un litige" | Litige créé, médiateurs proposés |
+| **MED-02** | Choisir un médiateur | 1. Sélectionner un médiateur dans la liste | Médiateur notifié, espace de chat créé |
+| **MED-03** | Résoudre un litige | 1. Médiateur propose une solution<br>2. Les parties acceptent | Litige clôturé, statut "Résolu" |
+
+### 2.7. Module Premium
+
+| ID | Description | Étapes | Résultat attendu |
+| :--- | :--- | :--- | :--- |
+| **PRE-01** | Fonctionnalités gratuites | 1. Utilisateur non-Premium | Fonctionnalités de base disponibles |
+| **PRE-02** | Devenir Premium | 1. Cliquer sur "Devenir Premium"<br>2. Payer 2 000 FCFA | Compte mis à jour Premium |
+| **PRE-03** | Fonctionnalités Premium | 1. Utilisateur Premium | Gestion illimitée, médiation, export PDF |
+
+---
+
+## 3. ENVIRONNEMENT DE TEST
+
+| Environnement | URL / Accès | Utilisation |
+| :--- | :--- | :--- |
+| **Développement (Dev)** | `https://dev.tontinezen.com` | Tests unitaires et intégration |
+| **Recette (Staging)** | `https://staging.tontinezen.com` | Tests fonctionnels et UAT |
+| **Production (Prod)** | `https://tontinezen.com` | Application en ligne |
+
+---
+
+## 4. PROCÉDURE DE SIGNALEMENT DES ANOMALIES
+
+1. Un testeur identifie un bug.
+2. Il le signale dans l'outil de gestion de projet (ex: Jira, GitHub Issues).
+3. Le bug est priorisé :
+    - **P0** : Bloquant (application inutilisable) → Correction immédiate.
+    - **P1** : Majeur (fonctionnalité importante non fonctionnelle) → Correction dans les 24h.
+    - **P2** : Mineur (défaut d'affichage, texte) → Correction avant la mise en production.
+4. Le développeur corrige le bug.
+5. Le testeur vérifie la correction.
+6. Le bug est marqué "Résolu".
+
+---
+
+## 5. CRITÈRES D'ACCEPTATION
+
+| Critère | Seuil |
+| :--- | :--- |
+| Taux de couverture des tests | 100% (tous les cas de tests exécutés) |
+| Tests P0 (bloquants) | 100% passés |
+| Tests P1 (majeurs) | 100% passés |
+| Tests P2 (mineurs) | > 95% passés |
+| Temps de réponse (API) | < 300ms (95% des requêtes) |
+
+---
+
+## 6. LIVRABLES ATTENDUS
+
+1. **Plan de test** (ce document).
+2. **Cas de tests** (fichier Excel ou Google Sheets).
+3. **Rapport de recette** :
+    - Résumé des tests (nombre de tests exécutés, passés, échoués).
+    - Liste des anomalies (ID, priorité, statut).
+    - Conclusion (validation ou non).
+4. **Compte-rendu de bêta-test** (si effectué avec des utilisateurs réels).
+
+---
+
+## 7. ANNEXES
+
+- **Annexe A** : Template du fichier Excel des cas de tests.
+- **Annexe B** : Exemple de rapport de recette.
+- **Annexe C** : Liste des utilisateurs de test.
+```
+
+---
+
+## 💎 RÉCAPITULATIF DES LIVRABLES
+
+| # | Fichier | Type de CDC | Destinataire |
+| :--- | :--- | :--- | :--- |
+| 1 | `CDC_FONCTIONNEL_GLOBAL_ZEN_LIGHT.md` | CDC Fonctionnel Global | Direction, Investisseurs |
+| 2 | `CDC_API_SPECS_ZEN_LIGHT.md` | CDC Spécifications API | Développeurs Backend |
+| 3 | `CDC_INTEGRATION_ZEN_LIGHT.md` | CDC d'Intégration | Développeurs, Intégrateurs |
+| 4 | `CDC_RECETTE_ZEN_LIGHT.md` | CDC de Recette (Plan de Test) | Équipe QA, MOA |
+
+---
+
+Ces 4 livrables, ajoutés aux 7 livrables précédents, constituent un **dossier complet** pour le lancement du projet « TONTINE ZEN LIGHT ». Vous disposez désormais de **11 livrables** au format `.md` couvrant tous les aspects : fonctionnel, technique, juridique, marketing, financier, intégration, et recette.

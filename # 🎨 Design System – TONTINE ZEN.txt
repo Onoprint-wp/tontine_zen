@@ -1,0 +1,882 @@
+# 🎨 Design System – TONTINE ZEN LIGHT (Inspiré de Pockora)
+
+**Version :** 1.0  
+**Date :** 19 Juin 2026  
+**Auteur :** [Votre Nom]  
+**Source :** Pockora – Finance Budget Flutter UI Kit (Codester)
+
+---
+
+## 1. PRÉSENTATION DU DESIGN SYSTEM
+
+### 1.1. Origine et Choix
+
+Ce design system est inspiré du template **Pockora** (Codester), que j'ai recommandé pour son excellence dans le domaine financier. Pockora propose :
+
+- **36+ écrans premium** pour la gestion financière
+- **Des widgets modulaires et réutilisables**
+- **Une architecture MVVM** avec gestion d'état Cubit/BLoC
+- **Une charte graphique moderne et professionnelle**
+- **Des composants adaptés aux besoins d'épargne et de budget**
+
+### 1.2. Adaptation pour TONTINE ZEN LIGHT
+
+Ce design system est adapté de Pockora pour répondre aux besoins spécifiques de votre projet :
+
+| Besoin TONTINE ZEN LIGHT | Adaptation de Pockora |
+| :--- | :--- |
+| **Gestion de tontine (groupes d'épargne)** | Les écrans "Budgets" et "Savings Goals" de Pockora sont réutilisés |
+| **Score de réputation** | Les "Smart Insights" de Pockora sont adaptés pour afficher les scores |
+| **Contrat OHADA** | Ajout d'un module "Documents" et "Signature" |
+| **Médiation** | Ajout d'un module "Litiges" et "Messagerie" |
+| **Contexte africain** | Adaptations culturelles (couleurs, icônes, langues locales) |
+
+---
+
+## 2. PHILOSOPHIE DU DESIGN
+
+### 2.1. Principes Directeurs
+
+| Principe | Description | Application |
+| :--- | :--- | :--- |
+| **Clarté** | Chaque écran a un objectif unique et clair | Tableau de bord avec indicateurs visuels immédiats |
+| **Confiance** | Le design inspire la sécurité et la fiabilité | Couleurs sobres, typographie professionnelle |
+| **Inclusion** | Accessible à tous, y compris les non-initiés | Icônes explicites, textes simples, langues locales |
+| **Efficacité** | Réduire le nombre d'actions pour chaque tâche | Actions rapides en un clic, navigation intuitive |
+
+### 2.2. Tone & Voice
+
+| Aspect | Description |
+| :--- | :--- |
+| **Ton** | Professionnel, rassurant, moderne |
+| **Voice** | Simple, directe, chaleureuse |
+| **Émotion** | Confiance, sécurité, communauté |
+
+---
+
+## 3. PALETTE DE COULEURS
+
+### 3.1. Couleurs Principales (Inspirées de Pockora)
+
+| Couleur | Code Hex | Usage | Exemple |
+| :--- | :--- | :--- | :--- |
+| **Bleu Profond** | `#0F1A2E` | Fond principal, confiance | Arrière-plan des écrans |
+| **Bleu Marine** | `#1A2A4A` | Fond secondaire, cartes | Cartes, sections |
+| **Bleu Cobalt** | `#2A4A7F` | Éléments interactifs | Boutons, liens |
+| **Vert Émeraude** | `#2F855A` | Validation, succès | Paiements confirmés, scores positifs |
+| **Or** | `#D69E2E` | Accents, récompenses | Badges, notifications |
+| **Blanc** | `#FFFFFF` | Textes sur fond sombre | Titres, textes importants |
+| **Gris Clair** | `#A0AEC0` | Textes secondaires | Descriptions, dates |
+| **Rouge** | `#E53E3E` | Alertes, erreurs | Impayés, retards |
+
+### 3.2. Dégradés Utilisés
+
+| Dégradé | Couleurs | Usage |
+| :--- | :--- | :--- |
+| **Primary Gradient** | `#0F1A2E` → `#1A2A4A` | Fond de l'application |
+| **Accent Gradient** | `#2A4A7F` → `#4A7ABF` | Boutons principaux |
+| **Success Gradient** | `#2F855A` → `#48BB78` | Indicateurs de succès |
+
+### 3.3. Thème Sombre / Clair
+
+| Élément | Mode Sombre | Mode Clair |
+| :--- | :--- | :--- |
+| Fond principal | `#0F1A2E` | `#F7FAFC` |
+| Fond secondaire | `#1A2A4A` | `#FFFFFF` |
+| Texte principal | `#FFFFFF` | `#1A202C` |
+| Texte secondaire | `#A0AEC0` | `#4A5568` |
+
+---
+
+## 4. TYPOGRAPHIE
+
+### 4.1. Police Principale
+
+| Police | Source | Usage |
+| :--- | :--- | :--- |
+| **Inter** | Google Fonts | Texte principal, titres, chiffres |
+| **Montserrat** | Google Fonts | Logo, titres de section |
+
+### 4.2. Hiérarchie Typographique
+
+| Élément | Police | Taille | Poids | Espacement |
+| :--- | :--- | :--- | :--- | :--- |
+| **Logo / Titre principal** | Montserrat | 28px | 900 | 1.2 |
+| **Titres de section** | Inter | 20px | 700 | 1.3 |
+| **Sous-titres** | Inter | 16px | 600 | 1.4 |
+| **Corps de texte** | Inter | 14px | 400 | 1.5 |
+| **Chiffres (montants)** | Inter | 24px | 700 | 1.2 |
+| **Étiquettes (labels)** | Inter | 12px | 500 | 1.4 |
+| **Messages d'erreur** | Inter | 12px | 400 | 1.5 |
+
+### 4.3. Exemple de Hiérarchie
+
+```dart
+// Exemple d'utilisation dans Flutter
+Text(
+  'Monthly Budget',
+  style: TextStyle(
+    fontFamily: 'Inter',
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+    color: Colors.white,
+  ),
+)
+```
+
+---
+
+## 5. ESPACEMENTS ET GRILLE
+
+### 5.1. Grille de Base
+
+| Unité | Taille (px) | Usage |
+| :--- | :--- | :--- |
+| **xs** | 4 | Marges minimales, icônes |
+| **sm** | 8 | Espacements entre éléments |
+| **md** | 16 | Marges standard, padding des cartes |
+| **lg** | 24 | Marges de section, espacement entre blocs |
+| **xl** | 32 | Marges de page |
+
+### 5.2. Layout Standard
+
+```
+[ 16px ] [ Contenu ] [ 16px ]
+```
+
+### 5.3. Composition des Écrans
+
+| Zone | Hauteur | Contenu |
+| :--- | :--- | :--- |
+| **Status Bar** | 24px | Système |
+| **AppBar** | 56px | Titre, actions |
+| **Contenu** | Flexible | Liste, cartes, formulaires |
+| **Bottom Navigation** | 56px | Navigation principale |
+
+---
+
+## 6. COMPOSANTS UI (ATOMES)
+
+### 6.1. Boutons
+
+| Type | Description | Couleur | Exemple |
+| :--- | :--- | :--- | :--- |
+| **Primary Button** | Bouton principal | Dégradé bleu | "Créer une tontine" |
+| **Secondary Button** | Bouton secondaire | Transparent | "Annuler" |
+| **Success Button** | Action positive | Vert | "Confirmer le paiement" |
+| **Danger Button** | Action négative | Rouge | "Supprimer" |
+| **Outlined Button** | Bouton contour | Bleu + bordure | "Voir les détails" |
+
+### 6.2. Cartes
+
+| Type | Couleur de fond | Ombres | Usage |
+| :--- | :--- | :--- | :--- |
+| **Card Standard** | `#1A2A4A` | `shadow-md` | Informations générales |
+| **Card Accent** | Dégradé bleu | `shadow-lg` | Informations importantes |
+| **Card Success** | Vert foncé | `shadow-md` | Indicateurs de succès |
+
+### 6.3. Champs de Saisie
+
+| État | Couleur de bordure | Couleur de fond | Usage |
+| :--- | :--- | :--- | :--- |
+| **Désactivé** | `#4A5568` | `#2D3748` | Champ non modifiable |
+| **Actif** | `#2A4A7F` | `#1A2A4A` | Saisie en cours |
+| **Erreur** | `#E53E3E` | `#1A2A4A` | Champ invalide |
+| **Succès** | `#2F855A` | `#1A2A4A` | Champ valide |
+
+### 6.4. Indicateurs
+
+| Type | Description | Visual |
+| :--- | :--- | :--- |
+| **Loading** | Spinner | Animation circulaire |
+| **Progress** | Barre de progression | Barre horizontale colorée |
+| **Badge** | Indicateur numérique | Petit cercle avec chiffre |
+| **Chip** | Étiquette interactive | Tag avec fond coloré |
+
+---
+
+## 7. COMPOSANTS DE PAGE (MOLÉCULES)
+
+### 7.1. AppBar
+
+```dart
+// Structure
+AppBar(
+  backgroundColor: Colors.transparent,
+  elevation: 0,
+  title: Text(
+    'TONTINE ZEN LIGHT',
+    style: TextStyle(
+      color: Colors.white,
+      fontWeight: FontWeight.w900,
+      fontSize: 20,
+    ),
+  ),
+  actions: [
+    IconButton(
+      icon: Icon(Icons.notifications),
+      color: Colors.white,
+      onPressed: () {},
+    ),
+  ],
+)
+```
+
+### 7.2. Bottom Navigation
+
+| Icône | Libellé | Chemin |
+| :--- | :--- | :--- |
+| `🏠` | Accueil | `/home` |
+| `👥` | Tontines | `/tontines` |
+| `➕` | Créer | `/create` |
+| `📊` | Statistiques | `/stats` |
+| `👤` | Profil | `/profile` |
+
+### 7.3. Tableau de Bord (Dashboard)
+
+| Widget | Description | Source Pockora |
+| :--- | :--- | :--- |
+| **Solde total** | Montant total dans la tontine | "Total Money" |
+| **Cotisations** | Montant des cotisations à venir | "Monthly Budget" |
+| **Score de réputation** | Score 0-100 avec badge | "Smart Insights" |
+| **Tontines actives** | Liste des tontines en cours | "Budgets" |
+| **Notifications** | Alertes récentes | "Notifications" |
+
+### 7.4. Liste de Tontines
+
+```dart
+// Structure d'un élément de liste
+Container(
+  decoration: BoxDecoration(
+    color: Color(0xFF1A2A4A),
+    borderRadius: BorderRadius.circular(12),
+  ),
+  child: ListTile(
+    leading: CircleAvatar(
+      backgroundImage: NetworkImage(member.photo),
+    ),
+    title: Text(
+      'Tontine des sœurs',
+      style: TextStyle(color: Colors.white),
+    ),
+    subtitle: Text(
+      '15 membres • 10 000 FCFA/mois',
+      style: TextStyle(color: Colors.grey),
+    ),
+    trailing: Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(
+          '90%',
+          style: TextStyle(color: Colors.green),
+        ),
+        Icon(Icons.chevron_right, color: Colors.white),
+      ],
+    ),
+  ),
+)
+```
+
+---
+
+## 8. COMPOSANTS SPÉCIFIQUES (TONTINE ZEN LIGHT)
+
+### 8.1. Score de Réputation
+
+| État | Score | Couleur | Icône |
+| :--- | :--- | :--- | :--- |
+| **Excellent** | 90-100 | `#2F855A` (Vert) | ⭐⭐⭐ |
+| **Bon** | 70-89 | `#D69E2E` (Or) | ⭐⭐ |
+| **Moyen** | 40-69 | `#3182CE` (Bleu) | ⭐ |
+| **Faible** | 0-39 | `#E53E3E` (Rouge) | ❌ |
+
+**Widget proposé** :
+
+```dart
+Widget ReputationScore({
+  required int score,
+}) {
+  return Container(
+    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+    decoration: BoxDecoration(
+      color: _getScoreColor(score),
+      borderRadius: BorderRadius.circular(20),
+    ),
+    child: Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(
+          Icons.star,
+          color: Colors.white,
+          size: 16,
+        ),
+        SizedBox(width: 4),
+        Text(
+          score.toString(),
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
+    ),
+  );
+}
+```
+
+### 8.2. Contrat OHADA (Signature)
+
+| État | Icône | Libellé | Couleur |
+| :--- | :--- | :--- | :--- |
+| **En attente** | `⏳` | En attente de signature | `#D69E2E` |
+| **Signé** | `✅` | Contrat signé | `#2F855A` |
+| **Exporter** | `📄` | Télécharger PDF | `#2A4A7F` |
+
+### 8.3. Médiation
+
+| État | Icône | Libellé | Couleur |
+| :--- | :--- | :--- | :--- |
+| **Signalé** | `🛡️` | Litige signalé | `#E53E3E` |
+| **En médiation** | `💬` | Médiation en cours | `#D69E2E` |
+| **Résolu** | `✅` | Litige résolu | `#2F855A` |
+
+### 8.4. Carte de Tontine (Card)
+
+```dart
+Widget TontineCard({
+  required String name,
+  required int members,
+  required int amount,
+  required int progress,
+}) {
+  return Container(
+    decoration: BoxDecoration(
+      gradient: LinearGradient(
+        colors: [Color(0xFF1A2A4A), Color(0xFF0F1A2E)],
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+      ),
+      borderRadius: BorderRadius.circular(16),
+    ),
+    child: Padding(
+      padding: EdgeInsets.all(16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                name,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              ReputationScore(score: 85),
+            ],
+          ),
+          SizedBox(height: 8),
+          Text(
+            '$members membres • $amount FCFA/mois',
+            style: TextStyle(color: Colors.grey),
+          ),
+          SizedBox(height: 12),
+          LinearProgressIndicator(
+            value: progress / 100,
+            backgroundColor: Color(0xFF2D3748),
+            valueColor: AlwaysStoppedAnimation<Color>(Color(0xFF2F855A)),
+          ),
+          SizedBox(height: 8),
+          Text(
+            'Progression : $progress%',
+            style: TextStyle(color: Colors.grey),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+```
+
+---
+
+## 9. ICONOGRAPHIE
+
+### 9.1. Jeu d'Icones
+
+| Icône | Description | Usage |
+| :--- | :--- | :--- |
+| `🎯` | Objectif | Objectifs d'épargne |
+| `👥` | Groupe | Tontine, membres |
+| `💰` | Argent | Cotisations, transactions |
+| `📊` | Graphique | Statistiques, rapports |
+| `📄` | Document | Contrat, PDF |
+| `🛡️` | Bouclier | Sécurité, médiation |
+| `⭐` | Étoile | Score de réputation |
+| `🔔` | Cloche | Notifications |
+| `👤` | Personne | Profil |
+| `➕` | Plus | Créer, ajouter |
+
+### 9.2. Style des Icones
+
+| Attribut | Valeur |
+| :--- | :--- |
+| **Taille standard** | 24px |
+| **Taille petite** | 16px |
+| **Taille grande** | 32px |
+| **Couleur** | Blanc (#FFFFFF) ou accent (#D69E2E) |
+
+---
+
+## 10. ANIMATIONS ET MICRO-INTERACTIONS
+
+### 10.1. Animations d'Entrée
+
+| Élément | Animation | Durée |
+| :--- | :--- | :--- |
+| **Page** | Fade + Scale | 300ms |
+| **Liste** | Slide de bas en haut | 200ms (décalé) |
+| **Carte** | Scale | 250ms |
+| **Bouton** | Tap + Ripple | 150ms |
+
+### 10.2. Transitions
+
+| Transition | Description | Durée |
+| :--- | :--- | :--- |
+| **Navigation** | Slide horizontal | 250ms |
+| **Modal** | Slide vertical (bas vers haut) | 300ms |
+| **Loading** | Spinner avec fade | 200ms |
+
+### 10.3. Feedback Utilisateur
+
+| Action | Feedback | Durée |
+| :--- | :--- | :--- |
+| **Tap bouton** | Ripple + Scale | 100ms |
+| **Confirmation** | Toast (pop-up) + Vibration | 200ms |
+| **Erreur** | SnackBar avec shake | 300ms |
+
+---
+
+## 11. ACCESSIBILITÉ
+
+### 11.1. Contrastes
+
+| Association | Ratio | Conformité |
+| :--- | :--- | :--- |
+| Blanc sur Bleu Profond | 12:1 | ✅ AAA |
+| Gris Clair sur Bleu Profond | 6:1 | ✅ AA |
+| Or sur Bleu Profond | 7:1 | ✅ AAA |
+| Rouge sur Bleu Profond | 5:1 | ✅ AA |
+
+### 11.2. Textes
+
+| Attribut | Valeur |
+| :--- | :--- |
+| Taille minimum | 14px |
+| Taille des boutons | > 44px (touch target) |
+| Police lisible | Inter, Montserrat |
+
+### 11.3. Langues Locales
+
+| Langue | Support |
+| :--- | :--- |
+| Français | ✅ Principal |
+| Anglais | ✅ Secondaire |
+| Bamiléké | ✅ Interface + tutoriels |
+| Douala | ✅ Interface + tutoriels |
+| Fulfulde | ✅ Interface + tutoriels |
+
+---
+
+## 12. DESIGN SYSTEM EN CODE (Flutter)
+
+### 12.1. Thème Centralisé (ThemeData)
+
+```dart
+// lib/themes/app_theme.dart
+import 'package:flutter/material.dart';
+
+class AppTheme {
+  static ThemeData darkTheme = ThemeData(
+    brightness: Brightness.dark,
+    primaryColor: Color(0xFF0F1A2E),
+    scaffoldBackgroundColor: Color(0xFF0F1A2E),
+    appBarTheme: AppBarTheme(
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      titleTextStyle: TextStyle(
+        color: Colors.white,
+        fontSize: 20,
+        fontWeight: FontWeight.w900,
+        fontFamily: 'Montserrat',
+      ),
+    ),
+    textTheme: TextTheme(
+      headlineLarge: TextStyle(
+        color: Colors.white,
+        fontSize: 28,
+        fontWeight: FontWeight.w900,
+        fontFamily: 'Montserrat',
+      ),
+      headlineMedium: TextStyle(
+        color: Colors.white,
+        fontSize: 20,
+        fontWeight: FontWeight.w700,
+        fontFamily: 'Inter',
+      ),
+      bodyLarge: TextStyle(
+        color: Colors.white,
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+        fontFamily: 'Inter',
+      ),
+      bodyMedium: TextStyle(
+        color: Color(0xFFA0AEC0),
+        fontSize: 12,
+        fontWeight: FontWeight.w400,
+        fontFamily: 'Inter',
+      ),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: Color(0xFF1A2A4A),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: BorderSide.none,
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: BorderSide(color: Color(0xFF2A4A7F), width: 2),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(12),
+        borderSide: BorderSide(color: Color(0xFFE53E3E), width: 2),
+      ),
+      labelStyle: TextStyle(color: Color(0xFFA0AEC0)),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Color(0xFF2A4A7F),
+        foregroundColor: Colors.white,
+        textStyle: TextStyle(
+          fontWeight: FontWeight.w600,
+          fontSize: 16,
+        ),
+        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+      ),
+    ),
+    cardTheme: CardTheme(
+      color: Color(0xFF1A2A4A),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+      elevation: 4,
+    ),
+  );
+}
+```
+
+### 12.2. Widgets Personnalisés (Composants)
+
+```dart
+// lib/widgets/reputation_score.dart
+import 'package:flutter/material.dart';
+
+class ReputationScore extends StatelessWidget {
+  final int score;
+
+  const ReputationScore({Key? key, required this.score}) : super(key: key);
+
+  Color _getScoreColor() {
+    if (score >= 90) return Color(0xFF2F855A);
+    if (score >= 70) return Color(0xFFD69E2E);
+    if (score >= 40) return Color(0xFF3182CE);
+    return Color(0xFFE53E3E);
+  }
+
+  String _getScoreLabel() {
+    if (score >= 90) return 'Excellent';
+    if (score >= 70) return 'Bon';
+    if (score >= 40) return 'Moyen';
+    return 'Faible';
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      decoration: BoxDecoration(
+        color: _getScoreColor(),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            Icons.star,
+            color: Colors.white,
+            size: 14,
+          ),
+          SizedBox(width: 6),
+          Text(
+            '$score • ${_getScoreLabel()}',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+```
+
+---
+
+## 13. COMPOSITION DES ÉCRANS CLÉS
+
+### 13.1. Écran d'Accueil (Dashboard)
+
+```
+┌─────────────────────────────────────┐
+│  [Logo] TONTINE ZEN LIGHT  [🔔]   │ ← AppBar
+├─────────────────────────────────────┤
+│                                     │
+│  ┌─────────────────────────────────┐ │
+│  │  Solde total : 1 250 000 FCFA  │ │ ← Carte Principale
+│  │  ⭐ 85 • Excellent             │ │
+│  └─────────────────────────────────┘ │
+│                                     │
+│  ┌─────────────────────────────────┐ │
+│  │  Cotisations à venir : 150 000  │ │ ← Carte Secondaire
+│  │  Prochain tirage : 15 Juin      │ │
+│  └─────────────────────────────────┘ │
+│                                     │
+│  Mes Tontines                       │ ← Titre Section
+│  ┌─────────────────────────────────┐ │
+│  │  Tontine des sœurs              │ │ ← Carte Tontine
+│  │  15 membres • 10 000 FCFA/mois  │ │
+│  │  ██████████░░░░░ 75%            │ │
+│  └─────────────────────────────────┘ │
+│  ┌─────────────────────────────────┐ │
+│  │  Tontine des cadres             │ │ ← Carte Tontine
+│  │  8 membres • 25 000 FCFA/mois   │ │
+│  │  ██████░░░░░░░░ 45%             │ │
+│  └─────────────────────────────────┘ │
+│                                     │
+│  [➕ Créer une tontine]            │ ← Bouton Flottant
+│                                     │
+└─────────────────────────────────────┘
+│  🏠  👥  📊  👤                     │ ← Bottom Navigation
+└─────────────────────────────────────┘
+```
+
+### 13.2. Écran de Création de Tontine
+
+```
+┌─────────────────────────────────────┐
+│  ←  Créer une tontine              │ ← AppBar
+├─────────────────────────────────────┤
+│                                     │
+│  📋 Informations                    │
+│  ┌─────────────────────────────────┐ │
+│  │  Nom de la tontine              │ │
+│  │  [Tontine des sœurs]           │ │
+│  └─────────────────────────────────┘ │
+│  ┌─────────────────────────────────┐ │
+│  │  Montant (FCFA)                 │ │
+│  │  [  10 000 ]                    │ │
+│  └─────────────────────────────────┘ │
+│  ┌─────────────────────────────────┐ │
+│  │  Fréquence                      │ │
+│  │  [Mensuelle ▼]                  │ │
+│  └─────────────────────────────────┘ │
+│                                     │
+│  👥 Membres                         │
+│  ┌─────────────────────────────────┐ │
+│  │  +  Ajouter des membres         │ │
+│  └─────────────────────────────────┘ │
+│                                     │
+│  ⚖️ Contrat OHADA                   │
+│  ┌─────────────────────────────────┐ │
+│  │  ✅ Contrat généré              │ │
+│  │  📄 Télécharger PDF             │ │
+│  └─────────────────────────────────┘ │
+│                                     │
+│  [  Créer la tontine  ]            │ ← Bouton Principal
+│                                     │
+└─────────────────────────────────────┘
+```
+
+### 13.3. Écran de Détail d'une Tontine
+
+```
+┌─────────────────────────────────────┐
+│  ←  Tontine des sœurs       [✏️]  │ ← AppBar
+├─────────────────────────────────────┤
+│                                     │
+│  ⭐ 85 • Excellent                  │ ← Score de Réputation
+│  15 membres • 10 000 FCFA/mois      │
+│                                     │
+│  ┌─────────────────────────────────┐ │
+│  │  💰 Caisse : 150 000 FCFA      │ │ ← Carte Statistique
+│  │  📊 75% des cotisations payées  │ │
+│  │  🎯 Prochain tirage : 15 Juin   │ │
+│  └─────────────────────────────────┘ │
+│                                     │
+│  Membres                            │ ← Titre Section
+│  ┌─────────────────────────────────┐ │
+│  │  👤 Ngo      ⭐ 92  ✅ Payé    │ │ ← Membre
+│  │  👤 Jean     ⭐ 78  ⏳ En retard│ │
+│  │  👤 Marie    ⭐ 85  ✅ Payé    │ │
+│  └─────────────────────────────────┘ │
+│                                     │
+│  📅 Historique                      │ ← Titre Section
+│  ┌─────────────────────────────────┐ │
+│  │  01/06/2026 - Ngo a payé 10 000 │ │
+│  │  25/05/2026 - Jean a payé 10 000│ │
+│  └─────────────────────────────────┘ │
+│                                     │
+│  ⚖️ Contrat OHADA                   │
+│  ┌─────────────────────────────────┐ │
+│  │  ✅ Signé par 15 membres        │ │
+│  │  📄 Exporter PDF               │ │
+│  └─────────────────────────────────┘ │
+│                                     │
+│  🛡️ Signaler un litige             │ ← Action
+│                                     │
+└─────────────────────────────────────┘
+```
+
+---
+
+## 14. IMPLÉMENTATION TECHNIQUE
+
+### 14.1. Structure des Dossiers
+
+```
+lib/
+├── main.dart
+├── themes/
+│   └── app_theme.dart
+├── widgets/
+│   ├── reputation_score.dart
+│   ├── tontine_card.dart
+│   ├── member_list.dart
+│   └── transaction_list.dart
+├── screens/
+│   ├── home_screen.dart
+│   ├── tontine_detail_screen.dart
+│   ├── create_tontine_screen.dart
+│   ├── profile_screen.dart
+│   └── dispute_screen.dart
+├── models/
+│   ├── user.dart
+│   ├── tontine.dart
+│   ├── transaction.dart
+│   └── dispute.dart
+├── services/
+│   ├── auth_service.dart
+│   ├── tontine_service.dart
+│   └── payment_service.dart
+└── utils/
+    ├── constants.dart
+    └── validators.dart
+```
+
+### 14.2. Gestion des Couleurs et Polices (Centralisées)
+
+```dart
+// lib/utils/constants.dart
+import 'package:flutter/material.dart';
+
+class AppColors {
+  static const Color primary = Color(0xFF0F1A2E);
+  static const Color secondary = Color(0xFF1A2A4A);
+  static const Color accent = Color(0xFF2A4A7F);
+  static const Color success = Color(0xFF2F855A);
+  static const Color warning = Color(0xFFD69E2E);
+  static const Color danger = Color(0xFFE53E3E);
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color grey = Color(0xFFA0AEC0);
+}
+
+class AppFonts {
+  static const String primary = 'Inter';
+  static const String display = 'Montserrat';
+}
+```
+
+### 14.3. Intégration avec Supabase
+
+```dart
+// lib/services/supabase_service.dart
+import 'package:supabase_flutter/supabase_flutter.dart';
+
+class SupabaseService {
+  static final SupabaseService _instance = SupabaseService._internal();
+  factory SupabaseService() => _instance;
+  SupabaseService._internal();
+
+  final supabase = Supabase.instance.client;
+
+  Future<List<Map<String, dynamic>>> getTontines(String userId) async {
+    final response = await supabase
+        .from('tontines')
+        .select()
+        .eq('user_id', userId);
+    return response;
+  }
+
+  Future<void> createTontine(Map<String, dynamic> data) async {
+    await supabase
+        .from('tontines')
+        .insert(data);
+  }
+}
+```
+
+---
+
+## 15. LIVRABLES ATTENDUS DU DESIGNER
+
+| Livrable | Description | Format |
+| :--- | :--- | :--- |
+| **Maquettes** | Tous les écrans (40+) | Figma |
+| **UI Kit** | Composants réutilisables | Figma |
+| **Icones** | Jeu d'icônes personnalisé | SVG, PNG |
+| **Prototype** | Prototype interactif | Figma |
+| **Design System Document** | Ce document | PDF, Markdown |
+| **Fichiers Flutter** | Code des widgets personnalisés | Dart |
+
+---
+
+## 16. GESTION DES ÉVOLUTIONS
+
+| Version | Date | Modifications |
+| :--- | :--- | :--- |
+| 1.0 | 19/06/2026 | Version initiale (inspirée de Pockora) |
+| 1.1 | TBD | Ajout des composants spécifiques (médiation, contrat) |
+| 2.0 | TBD | Mode clair, nouvelles animations |
+
+---
+
+## 💎 CONCLUSION
+
+Ce design system, inspiré de Pockora et adapté pour **« TONTINE ZEN LIGHT »**, offre :
+
+- ✅ Une **base visuelle solide** pour les applications financières
+- ✅ Des **composants modulaires** faciles à réutiliser
+- ✅ Une **charte graphique cohérente** (couleurs, typographie, espacements)
+- ✅ Des **widgets Flutter** prêts à l'emploi
+- ✅ Une **adaptation au contexte camerounais** (couleurs, langues locales)
+- ✅ Une **évolutivité** pour les versions futures (V1.5, V2, V3)
+
+**Prochaine étape** : Validation du design system par vos parties prenantes, puis lancement de la phase de conception UI/UX sur Figma.

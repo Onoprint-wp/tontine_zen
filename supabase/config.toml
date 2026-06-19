@@ -1,0 +1,20 @@
+project_id = "tontine-zen-light"
+
+[api]
+port = 54321
+schemas = ["public"]
+extra_search_path = ["public"]
+max_rows = 1000
+
+[db]
+port = 54322
+shadow_port = 54323
+
+[studio]
+port = 54324
+
+[auth]
+enabled = true
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["https://tontine-zen-light.vercel.app"]
+jwt_expiry = 3600

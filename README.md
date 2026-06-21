@@ -1,56 +1,17 @@
-# Tontine Zen Light 🚀
+# tontine_zen
 
-Tontine Zen Light est une application communautaire de gestion de tontines (Fintech Sociale) conçue spécifiquement pour le marché camerounais. L'application repose sur la transparence (historique public), la réputation (Trust Score de 0 à 100) et la sécurité juridique (génération de contrat de tontine conforme au droit OHADA et signature électronique), sans manipulation directe des fonds.
+A new Flutter project.
 
----
+## Getting Started
 
-## 🛠️ Stack Technique
+This project is a starting point for a Flutter application.
 
-- **Frontend (Mobile & Web)** : Flutter (Dart)
-- **Base de données & Auth** : Supabase
-- **Hébergement Web** : Vercel (déploiement automatique)
-- **Versionnement** : GitHub
+A few resources to get you started if this is your first Flutter project:
 
----
+- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
+- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
 
-## 🔄 Workflow Quotidien
-
-| Action | Commande | Depuis |
-| :--- | :--- | :--- |
-| **Démarrer une session** | `git pull origin main` | Antigravity / Android Studio |
-| **Développer / Tester** | `flutter run` | Antigravity / Android Studio |
-| **Pousser les modifs** | `git add . && git commit -m "..." && git push origin main` | Antigravity / Android Studio |
-| **Vérifier l'état** | `git status` | Terminal |
-| **Build final** | `flutter build web --release` | Android Studio / Terminal |
-| **Déployer** | `vercel --prod` | Terminal |
-
----
-
-## 🏗️ Script Master Unifié
-
-Pour automatiser tout le flux de déploiement (prerequis, pull, db migration, build et deploy), exécutez le script à la racine :
-
-```bash
-chmod +x build.sh
-./build.sh
-```
-
----
-
-## 📁 Architecture du Projet
-
-```
-tontine-zen-light/
-├── lib/
-│   ├── main.dart
-│   ├── screens/         # Écrans (Dashboard, Tontines, Profil, etc.)
-│   ├── widgets/         # Components réutilisables
-│   ├── services/        # Supabase, Auth, API
-│   ├── models/          # Modèles de données
-│   └── utils/           # Constantes, validateurs
-├── supabase/
-│   ├── config.toml
-│   └── migrations/      # Scripts SQL (migrations)
-├── build.sh             # Script master unifié
-└── README.md            # Ce fichier
-```
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.

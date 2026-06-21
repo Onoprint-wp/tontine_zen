@@ -1,6 +1,6 @@
 #!/bin/bash
 # ============================================================
-# SCRIPT MASTER – TONTINE ZEN LIGHT
+# SCRIPT MASTER – TONTINE ZEN LIGHT (Linux / macOS / Git Bash)
 # ============================================================
 # Stack : Stitch → GitHub → Antigravity + Android Studio → Supabase → Vercel
 # ============================================================

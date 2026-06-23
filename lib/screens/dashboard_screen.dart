@@ -121,10 +121,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.refresh),
+            tooltip: 'Actualiser',
             onPressed: _loadData,
           ),
           IconButton(
             icon: const Icon(Icons.logout),
+            tooltip: 'Se déconnecter',
             onPressed: _logout,
           ),
         ],

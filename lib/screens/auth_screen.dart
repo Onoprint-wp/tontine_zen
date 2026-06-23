@@ -134,6 +134,38 @@ class _AuthScreenState extends State<AuthScreen> {
     );
   }
 
+  Future<void> _loginAsSimulatedUser(String email, String fullName) async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    try {
+      final client = SupabaseService.instance.client;
+      try {
+        await client.auth.signInWithPassword(
+          email: email,
+          password: 'TontineZen2026!',
+        );
+      } catch (e) {
+        await client.auth.signUp(
+          email: email,
+          password: 'TontineZen2026!',
+          data: {'full_name': fullName},
+        );
+        await SupabaseService.instance.updateProfile(fullName: fullName);
+      }
+      _navigateToDashboard();
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Erreur simulation : ${e.toString()}')),
+      );
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -192,6 +224,58 @@ class _AuthScreenState extends State<AuthScreen> {
                           child: CircularProgressIndicator(strokeWidth: 2),
                         )
                       : const Text('Envoyer le code OTP'),
+                ),
+                const SizedBox(height: 24),
+                Text(
+                  'Simulation Démo (Sélectionner un profil)',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: AppConstants.textSecondaryColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                OutlinedButton.icon(
+                  onPressed: _isLoading ? null : () => _loginAsSimulatedUser('ariel@tontine.com', 'Ariel Kamga'),
+                  icon: const Icon(Icons.admin_panel_settings, color: AppConstants.primaryColor),
+                  label: const Text('Ariel Kamga (Admin & Trésorier)'),
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: AppConstants.primaryColor,
+                    side: const BorderSide(color: AppConstants.primaryColor),
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(AppConstants.roundTwelve),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                OutlinedButton.icon(
+                  onPressed: _isLoading ? null : () => _loginAsSimulatedUser('bernice@tontine.com', 'Bernice Noubissi'),
+                  icon: const Icon(Icons.person, color: AppConstants.scoreColor),
+                  label: const Text('Bernice Noubissi (Membre - En retard)'),
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: AppConstants.scoreColor,
+                    side: const BorderSide(color: AppConstants.scoreColor),
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(AppConstants.roundTwelve),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 8),
+                OutlinedButton.icon(
+                  onPressed: _isLoading ? null : () => _loginAsSimulatedUser('cedric@tontine.com', 'Cedric Fotso'),
+                  icon: const Icon(Icons.person_outline, color: AppConstants.textPrimaryColor),
+                  label: const Text('Cedric Fotso (Membre - En attente)'),
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: AppConstants.textPrimaryColor,
+                    side: const BorderSide(color: AppConstants.secondaryColor),
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(AppConstants.roundTwelve),
+                    ),
+                  ),
                 ),
               ] else if (_otpSent && !_isNewUserFlow) ...[
                 // Enter OTP Code
